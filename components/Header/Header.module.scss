@@ -4,6 +4,9 @@
   top: 0;
   left: 0;
   padding: 22px 0 20px;
+  z-index: 1000;
+
+  transition: background 0.3s backdrop-filter 0.3s;
 }
 
 .scroll {
@@ -32,6 +35,9 @@
   left: 0;
   top: 50%;
   transform: translateY(-50%);
+  svg {
+    transition: fill 0.3s;
+  }
 }
 
 .nav {
@@ -53,6 +59,7 @@
   line-height: 50px;
   text-transform: capitalize;
   position: relative;
+  transition: color 0.3s;
 
   &::after {
     content: '';

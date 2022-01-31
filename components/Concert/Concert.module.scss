@@ -1,0 +1,79 @@
+.wrapper {
+  width: 100%;
+  padding: 0 0 20px 0;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.date,
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.date {
+  gap: 3px;
+}
+
+.info {
+  gap: 5px;
+}
+
+.day {
+  font-family: $ff-g;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 95%;
+  color: $black;
+}
+
+.month {
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 26px;
+  text-transform: uppercase;
+  color: $black;
+}
+
+.place {
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 44px;
+  text-transform: uppercase;
+  color: $black;
+}
+
+.city {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  text-transform: uppercase;
+  color: $black;
+}
+
+.location {
+  padding: 10px 12px 9px;
+  background-color: $black;
+  border-radius: 10px;
+
+  font-weight: 600;
+  font-size: 21px;
+  line-height: 26px;
+  color: $white;
+  text-transform: uppercase;
+}
+
+.line {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  border-color: $black;
+  margin-block: 0;
+  border-style: solid;
+}

@@ -1,0 +1,29 @@
+.wrapper {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 55px;
+  position: relative;
+
+  display: flex;
+}
+
+.ticker {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 35px;
+  list-style: none;
+}
+
+.text {
+  font-weight: 900;
+  font-size: 93px;
+  line-height: 113px;
+  text-transform: uppercase;
+  user-select: none;
+
+  &:nth-child(even) {
+    color: $black;
+    text-shadow: -1px -1px 0 $white, 1px -1px 0 $white, -1px 1px 0 $white, 1px 1px 0 $white;
+  }
+}

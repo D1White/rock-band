@@ -1,0 +1,27 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.img {
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+}
+
+.name {
+  font-family: $ff-g;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 53px;
+  color: $red;
+  margin-top: 18px;
+}
+
+.link {
+  font-size: 21px;
+  line-height: 26px;
+  margin-top: 6px;
+  color: $white;
+}
