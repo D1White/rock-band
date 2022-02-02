@@ -13,8 +13,6 @@ const Concert: FC<ConcertProps> = ({ date, place, city, location }) => {
   const convertDate = new Date(date);
   const stringDate = convertDate.toString();
 
-  console.log(convertDate.toString());
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.date}>

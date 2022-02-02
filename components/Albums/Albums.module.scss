@@ -25,3 +25,21 @@
   position: relative;
   z-index: 1;
 }
+
+.slider {
+  & > div {
+    display: flex;
+    align-items: flex-end;
+  }
+}
+
+.plate {
+  width: 370px;
+  height: 370px;
+  position: absolute;
+  right: -40%;
+  left: 50%;
+  top: calc(450px - 5px);
+  z-index: 0;
+  transform: translate(-50%, -100%);
+}

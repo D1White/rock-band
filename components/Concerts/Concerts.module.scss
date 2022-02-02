@@ -21,7 +21,7 @@
 .concerts {
   width: 65%;
   height: 800px;
-  padding: 105px 160px;
+  padding: 100px 160px;
   background-color: $white;
   background: url('../../assets/img/white-paper-modal.png') no-repeat center center;
   background-size: cover;
@@ -40,6 +40,11 @@
   height: 65px;
   position: absolute;
   left: 50%;
+  z-index: 50px;
+  transition: opacity 0.2s;
+  &.disabled {
+    opacity: 0.3;
+  }
 }
 
 .arrowTop {
@@ -50,4 +55,8 @@
 .arrowBottom {
   bottom: 10px;
   transform: translateX(-50%) rotate(180deg);
+}
+
+.slider {
+  width: 100%;
 }

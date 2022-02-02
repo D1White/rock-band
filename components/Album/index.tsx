@@ -1,48 +1,45 @@
-import { Dispatch, FC } from 'react';
-import Image from 'next/image';
+import { FC } from 'react';
+import { useSwiperSlide } from 'swiper/react';
 
 import styles from './Album.module.scss';
-
-import plate from 'assets/img/plate.png';
 
 interface AlbunFC {
   cover: string;
   name: string;
   year: string;
   link: string;
-  active: boolean;
   index: number;
-  setActiveAlbum: Dispatch<number>;
 }
 
-const Album: FC<AlbunFC> = ({ cover, name, year, link, active, index, setActiveAlbum }) => {
+const Album: FC<AlbunFC> = ({ cover, name, year, link }) => {
+  const swiperSlide = useSwiperSlide();
+
   const clickHandler = () => {
     console.log('click');
-
-    setActiveAlbum(index);
   };
 
   return (
-    <div className={styles.wrapper} onClick={clickHandler}>
-      {active ? (
-        <>
-          <div className={styles.cover}>
-            <img src={cover} alt={name} className={styles.activeCoverImg} />
-            <div className={styles.plate}>
-              <Image src={plate} alt="plate" />
-            </div>
-          </div>
-          <div className={styles.textBlock}>
-            <a href={link} target="_blank" rel="noopener noreferrer" className={styles.name}>
-              {name}
-            </a>
-            <p className={styles.year}>{year}</p>
-          </div>
-        </>
-      ) : (
-        <img src={cover} alt={name} className={styles.coverImg} />
-      )}
-    </div>
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`${styles.wrapper} ${swiperSlide.isActive ? styles.active : ''}`}
+      onClick={clickHandler}
+    >
+      <div className={styles.cover}>
+        <img
+          src={cover}
+          alt={name}
+          className={`${styles.img} ${
+            swiperSlide.isActive ? styles.activeCoverImg : styles.coverImg
+          }`}
+        />
+      </div>
+      <div className={`${styles.textBlock} ${swiperSlide.isActive ? styles.active : ''}`}>
+        <p className={styles.name}>{name}</p>
+        <p className={styles.year}>{year}</p>
+      </div>
+    </a>
   );
 };
 

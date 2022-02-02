@@ -24,15 +24,11 @@ const Ticker = () => {
   return (
     <section className={styles.wrapper}>
       <ul className={styles.ticker} ref={ticker}>
-        <li className={styles.text}>зашибись</li>
-        <li className={styles.text}>зашибись</li>
-        <li className={styles.text}>зашибись</li>
-        <li className={styles.text}>зашибись</li>
-
-        <li className={`${styles.text} ${styles.last}`}>зашибись</li>
-        <li className={styles.text}>зашибись</li>
-        <li className={styles.text}>зашибись</li>
-        <li className={styles.text}>зашибись</li>
+        {new Array(8).fill(undefined).map((_, idx) => (
+          <li className={styles.text} key={idx}>
+            зашибись
+          </li>
+        ))}
       </ul>
     </section>
   );

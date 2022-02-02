@@ -1,5 +1,7 @@
 import type { NextPage } from 'next';
 
+import 'swiper/css';
+
 import HeroSection from 'components/HeroSection';
 import About from 'components/About';
 import Albums from 'components/Albums';
