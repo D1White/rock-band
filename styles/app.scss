@@ -2,6 +2,12 @@
 @import './base';
 @import './containers';
 
+html {
+  scroll-behavior: smooth;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
 body {
   font-size: 24px;
   font-weight: 400;
@@ -9,6 +15,7 @@ body {
   font-family: $ff-m;
   color: $white;
   background: $black;
+
   &.no-scroll {
     margin: 0;
     height: 100%;

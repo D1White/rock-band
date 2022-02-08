@@ -12,8 +12,7 @@ import blackPaper from 'assets/img/black-paper.jpg';
 const AlbumsSection = () => {
   const albums = [
     {
-      cover:
-        'https://lh3.googleusercontent.com/9dML6IsjeogHbTP3Ei_wuHM49qxvB4rIlwFCdav-nOv3Js3Dc8_st_7xjzrtCEx4VeKKVel3cKGOE1w=w544-h544-l90-rj',
+      cover: 'https://i1.sndcdn.com/artworks-Mg8CeG7YcPlDozzN-Iy5rcg-t200x200.jpg',
       name: 'Live Action Album',
       year: '2022',
       link: 'https://allmylinks.com/scytherband',
@@ -40,7 +39,7 @@ const AlbumsSection = () => {
   ];
 
   return (
-    <section className={styles.wrapper}>
+    <section className={styles.wrapper} id="music">
       <div className={`container ${styles.container}`}>
         <Swiper
           slidesPerView={3}

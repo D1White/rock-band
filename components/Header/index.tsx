@@ -10,7 +10,7 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
 
   const links = [
-    { title: 'about us', href: '#about-us' },
+    { title: 'about us', href: '#about' },
     { title: 'music', href: '#music' },
     { title: 'concerts', href: '#concerts' },
     { title: 'gallery', href: '#gallery' },

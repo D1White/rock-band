@@ -98,12 +98,10 @@ const Concerts = () => {
   };
 
   return (
-    <section className={styles.wrapper}>
+    <section className={styles.wrapper} id="concerts">
       <div className={styles.concerts}>
         <button
-          className={`${styles.arrow} ${styles.arrowTop} ${
-            swiperProgress.isBeginning ? styles.disabled : ''
-          }`}
+          className={`${styles.arrow} ${styles.arrowTop}`}
           onClick={prevSlide}
           disabled={swiperProgress.isBeginning}
         >
@@ -129,9 +127,7 @@ const Concerts = () => {
           ))}
         </Swiper>
         <button
-          className={`${styles.arrow} ${styles.arrowBottom} ${
-            swiperProgress.isEnd ? styles.disabled : ''
-          }`}
+          className={`${styles.arrow} ${styles.arrowBottom}`}
           onClick={nextSlide}
           disabled={swiperProgress.isEnd}
         >

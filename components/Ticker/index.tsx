@@ -22,7 +22,7 @@ const Ticker = () => {
   }, []);
 
   return (
-    <section className={styles.wrapper}>
+    <section className={styles.wrapper} id="gallery">
       <ul className={styles.ticker} ref={ticker}>
         {new Array(8).fill(undefined).map((_, idx) => (
           <li className={styles.text} key={idx}>
