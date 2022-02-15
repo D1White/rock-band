@@ -5,10 +5,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import styles from './Concerts.module.scss';
 
-import Concert from 'components/Concert';
+import Concert from '@components/Concert';
 
-import redPaperBg from 'assets/img/red-paper-bg.jpg';
-import SVGArrow from 'assets/svg/arrow-top.svg';
+import redPaperBg from '@img/red-paper-bg.jpg';
+import SVGArrow from '@svg/arrow-top.svg';
 
 const Concerts = () => {
   const concertsData = [

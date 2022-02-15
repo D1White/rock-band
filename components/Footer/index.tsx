@@ -3,8 +3,8 @@ import Image from 'next/image';
 
 import styles from './Footer.module.scss';
 
-import scyterLogo from 'assets/img/scyther-logo.png';
-import SVG1WhiteLogo from 'assets/svg/1white_logo.svg';
+import scyterLogo from '@img/scyther-logo.png';
+import SVG1WhiteLogo from '@svg/1white_logo.svg';
 
 const Footer = () => {
   return (

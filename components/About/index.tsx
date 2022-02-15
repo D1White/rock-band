@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import styles from './About.module.scss';
 
-import Participant from 'components/Participant';
+import Participant from '@components/Participant';
 
 import curtain from 'assets/img/red-paper_top_2.png';
 

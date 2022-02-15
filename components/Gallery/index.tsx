@@ -5,8 +5,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import styles from './Gallery.module.scss';
 
-import photo from 'assets/img/photo-1.jpg';
-import SVGArrow from 'assets/svg/arrow-top.svg';
+import photo from '@img/photo-1.jpg';
+import SVGArrow from '@svg/arrow-top.svg';
 
 const Gallery = () => {
   const [swiper, setSwiper] = useState<SwiperType>();

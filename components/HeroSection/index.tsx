@@ -3,10 +3,10 @@ import Image from 'next/image';
 
 import styles from './HeroSection.module.scss';
 
-import topCurtain from 'assets/img/red-paper_top.png';
+import topCurtain from '@img/red-paper_top.png';
 import bottomCurtain from 'assets/img/red-paper_bottom.png';
-import heroPhoto from 'assets/img/hero-img.jpg';
-import scyterLogo from 'assets/img/scyther-logo.png';
+import heroPhoto from '@img/hero-img.jpg';
+import scyterLogo from '@img/scyther-logo.png';
 
 const HeroSection = () => {
   return (

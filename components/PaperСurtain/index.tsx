@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import styles from './PaperСurtain.module.scss';
 
-import redPaper from 'assets/img/red-paper.png';
+import redPaper from '@img/red-paper.png';
 
 const PaperСurtain = () => {
   return (

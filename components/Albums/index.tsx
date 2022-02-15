@@ -5,9 +5,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import styles from './Albums.module.scss';
 
-import Album from 'components/Album';
+import Album from '@components/Album';
 
-import blackPaper from 'assets/img/black-paper.jpg';
+import blackPaper from '@img/black-paper.jpg';
 
 const AlbumsSection = () => {
   const albums = [

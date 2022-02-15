@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 
 import styles from './Header.module.scss';
 
-import Logo from 'assets/svg/logo.svg';
-import RedPaper from 'assets/img/red-paper_bottom.png';
+import Logo from '@svg/logo.svg';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
