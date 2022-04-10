@@ -1,5 +1,6 @@
-import React from 'react';
 import Image from 'next/image';
+
+import AnimScale from '@components/animations/AnimScale';
 
 import styles from './HeroSection.module.scss';
 
@@ -15,11 +16,15 @@ const HeroSection = () => {
       </div>
 
       <div className={styles.logo}>
-        <Image src={scytherLogo} layout="fill" alt="Scyther" />
+        <AnimScale waitReloader direction="up">
+          <Image src={scytherLogo} layout="fill" alt="Scyther" />
+        </AnimScale>
       </div>
 
       <div className={styles.bg}>
-        <Image src={heroPhoto} layout="fill" objectFit="cover" alt="Scyther band concert" />
+        <AnimScale waitReloader>
+          <Image src={heroPhoto} layout="fill" objectFit="cover" alt="Scyther band concert" />
+        </AnimScale>
       </div>
     </section>
   );

@@ -7,7 +7,7 @@ import Participant from '@components/Participant';
 const About = () => {
   const data = [
     {
-      img: 'https://images.genius.com/4fb5166827e0eb0f2e6c9c9bf18965fe.1000x1000x1.png',
+      img: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80',
       name: 'Oleksii Kolotenko',
       instagram: 'oleshaz',
     },

@@ -8,6 +8,9 @@
   width: 230px;
   height: 230px;
   border-radius: 50%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: filter 0.3s;
 
   @include lg {
     width: 172px;
@@ -17,9 +20,9 @@
     width: 120px;
     height: 120px;
   }
-  @include xs {
-    // width: 100px;
-    // height: 100px;
+
+  &:hover {
+    filter: initial;
   }
 }
 
