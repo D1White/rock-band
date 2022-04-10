@@ -2,8 +2,24 @@
   width: 100%;
   height: 120vh;
   position: relative;
-  // margin-bottom: 80px;
   padding-top: 200px;
+
+  @include lg {
+    padding-top: 160px;
+  }
+  @include md {
+    padding-top: 112px;
+    height: 110vh;
+  }
+  @include sm {
+    height: 580px;
+  }
+  @include xs {
+    height: 100vh;
+    padding-top: 0;
+    display: flex;
+    align-items: center;
+  }
 }
 
 .bg {
@@ -24,6 +40,10 @@
   justify-content: space-between;
   position: relative;
   z-index: 1;
+
+  @include sm {
+    max-width: initial;
+  }
 }
 
 .slider {
@@ -42,4 +62,29 @@
   top: calc(450px - 5px);
   z-index: 0;
   transform: translate(-50%, -100%);
+}
+
+.swipe {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+
+  @include xs {
+    display: flex;
+  }
+}
+
+.swipeText {
+  font-size: 10px;
+  line-height: 12px;
+}
+
+.swipeArrow {
+  width: 50px;
+  margin-top: -4px;
 }

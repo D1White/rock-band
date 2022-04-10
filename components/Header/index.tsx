@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 import styles from './Header.module.scss';
 
-import Logo from '@svg/logo.svg';
+import ScyterLogo from '@components/ScyterLogo';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -33,8 +33,9 @@ const Header = () => {
     <header className={`${styles.header} ${scrolled ? styles.scroll : ''}`}>
       <div className={`container ${styles.container}`}>
         <a href="#" className={styles.logo}>
-          <Logo />
+          <ScyterLogo />
         </a>
+
         <nav className={styles.nav}>
           <ul className={styles.navList}>
             {links.map((link) => (
@@ -46,6 +47,11 @@ const Header = () => {
             ))}
           </ul>
         </nav>
+
+        <button className={styles.burgerMenu}>
+          <div></div>
+          <div></div>
+        </button>
       </div>
     </header>
   );

@@ -2,15 +2,23 @@
   padding: 446px 0 200px;
   position: relative;
   margin-top: -243px;
-}
 
-.topСurtain {
-  width: 100%;
-  height: 243px;
-  position: absolute;
-  top: -3px;
-  left: 0;
-  z-index: 0;
+  @include lg {
+    padding: 330px 0 170px;
+    margin-top: -178px;
+  }
+  @include md {
+    padding: 240px 0 120px;
+    margin-top: -127px;
+  }
+  @include sm {
+    padding: 190px 0 100px;
+    margin-top: -96px;
+  }
+  @include xs {
+    padding: 142px 0 70px;
+    margin-top: -88px;
+  }
 }
 
 .container {
@@ -22,6 +30,12 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+
+  @include sm {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 40px;
+  }
 }
 
 .text {
@@ -29,6 +43,25 @@
   line-height: 29px;
   max-width: 922px;
   margin-top: 90px;
+
+  @include lg {
+    font-size: 18px;
+    line-height: 22px;
+    max-width: 686px;
+    margin-top: 70px;
+  }
+  @include md {
+    font-size: 16px;
+    line-height: 20px;
+    max-width: 646px;
+  }
+  @include sm {
+    max-width: initial;
+    margin-top: 65px;
+  }
+  @include xs {
+    margin-top: 80px;
+  }
 }
 
 .link {
@@ -47,4 +80,26 @@
   color: $red;
 
   margin-top: 105px;
+
+  @include lg {
+    font-size: 36px;
+    line-height: 53px;
+    margin-top: 85px;
+    padding: 5px 10px 10px;
+  }
+  @include md {
+    font-size: 32px;
+    line-height: 47px;
+    margin-top: 82px;
+  }
+  @include sm {
+    padding: 2px 10px 6px;
+    margin-top: 65px;
+    font-size: 30px;
+    line-height: 45px;
+  }
+  @include xs {
+    font-size: 32px;
+    line-height: 47px;
+  }
 }

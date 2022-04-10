@@ -8,6 +8,19 @@
   width: 230px;
   height: 230px;
   border-radius: 50%;
+
+  @include lg {
+    width: 172px;
+    height: 172px;
+  }
+  @include md {
+    width: 120px;
+    height: 120px;
+  }
+  @include xs {
+    // width: 100px;
+    // height: 100px;
+  }
 }
 
 .name {
@@ -17,6 +30,22 @@
   line-height: 53px;
   color: $red;
   margin-top: 18px;
+
+  @include lg {
+    font-size: 26px;
+    line-height: 38px;
+    margin-top: 14px;
+  }
+  @include md {
+    font-size: 20px;
+    line-height: 30px;
+    margin-top: 8px;
+  }
+  @include sm {
+    font-size: 18px;
+    line-height: 27px;
+    margin-top: 3px;
+  }
 }
 
 .link {
@@ -24,4 +53,18 @@
   line-height: 26px;
   margin-top: 6px;
   color: $white;
+
+  @include lg {
+    font-size: 18px;
+    line-height: 22px;
+    margin-top: 4px;
+  }
+  @include md {
+    font-size: 14px;
+    line-height: 17px;
+    margin-top: 2px;
+  }
+  @include sm {
+    margin-top: 0;
+  }
 }

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import SwiperType from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -22,7 +22,7 @@ const Concerts = () => {
     {
       id: 2,
       date: '2022-01-19T00:00:00.000Z',
-      place: 'Volume Club',
+      place: 'Арт клуб "Теплый ламповый"',
       city: 'Kyiv',
       location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
     },
@@ -68,6 +68,27 @@ const Concerts = () => {
       city: 'Kyiv',
       location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
     },
+    {
+      id: 9,
+      date: '2022-01-20T00:00:00.000Z',
+      place: 'Volume Club',
+      city: 'Kyiv',
+      location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
+    },
+    {
+      id: 10,
+      date: '2022-01-20T00:00:00.000Z',
+      place: 'Volume Club',
+      city: 'Kyiv',
+      location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
+    },
+    {
+      id: 11,
+      date: '2022-01-20T00:00:00.000Z',
+      place: 'Volume Club',
+      city: 'Kyiv',
+      location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
+    },
   ];
 
   const [swiper, setSwiper] = useState<SwiperType>();
@@ -107,11 +128,17 @@ const Concerts = () => {
         >
           <SVGArrow />
         </button>
+
         <Swiper
           direction="vertical"
-          slidesPerView={5}
+          slidesPerView={10}
           spaceBetween={15}
           className={styles.slider}
+          breakpoints={{
+            599: {
+              slidesPerView: 5,
+            },
+          }}
           onInit={(ev) => setSwiper(ev)}
           onProgress={(p) => setProgress(p)}
         >
@@ -126,6 +153,7 @@ const Concerts = () => {
             </SwiperSlide>
           ))}
         </Swiper>
+
         <button
           className={`${styles.arrow} ${styles.arrowBottom}`}
           onClick={nextSlide}

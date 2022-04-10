@@ -1,11 +1,8 @@
 import React from 'react';
-import Image from 'next/image';
 
 import styles from './About.module.scss';
 
 import Participant from '@components/Participant';
-
-import curtain from 'assets/img/red-paper_top_2.png';
 
 const About = () => {
   const data = [
@@ -38,9 +35,6 @@ const About = () => {
 
   return (
     <section className={styles.wrapper} id="about">
-      {/* <div className={styles.topСurtain}>
-        <Image src={curtain} layout="fill" />
-      </div> */}
       <div className={`container ${styles.container}`}>
         <div className={styles.team}>
           {data.map((item) => (

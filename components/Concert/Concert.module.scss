@@ -6,6 +6,21 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 5px;
+
+  @include lg {
+    padding: 0 0 14px 0;
+  }
+  @include md {
+    padding: 0 0 10px 0;
+  }
+  @include sm {
+    padding: 0 0 8px 0;
+  }
+  @include xs {
+    padding: 0 0 6px 0;
+    justify-content: flex-start
+  }
 }
 
 .date,
@@ -17,10 +32,30 @@
 
 .date {
   gap: 3px;
+  @include lg {
+    gap: 2px;
+  }
+  @include md {
+    gap: 0px;
+  }
 }
 
 .info {
   gap: 5px;
+  @include lg {
+    gap: 4px;
+  }
+  @include md {
+    gap: 0px;
+  }
+  @include xs {
+    gap: 2px;
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 .day {
@@ -29,6 +64,19 @@
   font-size: 60px;
   line-height: 95%;
   color: $black;
+
+  @include lg {
+    font-size: 42px;
+  }
+  @include md {
+    font-size: 32px;
+  }
+  @include sm {
+    font-size: 30px;
+  }
+  @include xs {
+    font-size: 24px;
+  }
 }
 
 .month {
@@ -37,14 +85,44 @@
   line-height: 26px;
   text-transform: uppercase;
   color: $black;
+  @include lg {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  @include md {
+    font-size: 12px;
+    line-height: 15px;
+  }
+  @include xs {
+    font-size: 10px;
+    line-height: 12px;
+  }
 }
 
 .place {
   font-weight: 500;
-  font-size: 36px;
-  line-height: 44px;
+  font-size: 32px;
+  line-height: 34px;
   text-transform: uppercase;
   color: $black;
+  text-align: center;
+
+  @include lg {
+    font-size: 24px;
+    line-height: 26px;
+  }
+  @include md {
+    font-size: 22px;
+    line-height: 27px;
+  }
+  @include sm {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  @include xs {
+    font-size: 14px;
+    line-height: 18px;
+  }
 }
 
 .city {
@@ -53,6 +131,19 @@
   line-height: 29px;
   text-transform: uppercase;
   color: $black;
+
+  @include lg {
+    font-size: 18px;
+    line-height: 22px;
+  }
+  @include md {
+    font-size: 14px;
+    line-height: 17px;
+  }
+  @include xs {
+    font-size: 10px;
+    line-height: 12px;
+  }
 }
 
 .location {
@@ -65,6 +156,21 @@
   line-height: 26px;
   color: $white;
   text-transform: uppercase;
+
+  @include lg {
+    padding: 8px 10px 7px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  @include md {
+    padding: 5px 7px 4px;
+    font-size: 12px;
+    line-height: 15px;
+    border-radius: 6px;
+  }
+  @include xs {
+    display: none;
+  }
 }
 
 .line {
@@ -76,4 +182,11 @@
   border-color: $black;
   margin-block: 0;
   border-style: solid;
+
+  @include lg {
+    border-top-width: 0px;
+  }
+  @include xs {
+    transform: scaleY(0.5);
+  }
 }

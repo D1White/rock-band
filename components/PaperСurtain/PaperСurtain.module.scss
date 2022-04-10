@@ -4,4 +4,21 @@
   margin-top: -156px;
   position: relative;
   z-index: 5;
+
+  @include lg {
+    height: 285px;
+    margin-top: -115px;
+  }
+  @include md {
+    height: 202px;
+    margin-top: -82px;
+  }
+  @include sm {
+    height: 152px;
+    margin-top: -62px;
+  }
+  @include xs {
+    height: 140px;
+    margin-top: -56px;
+  }
 }

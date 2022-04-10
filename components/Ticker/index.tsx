@@ -24,7 +24,7 @@ const Ticker = () => {
   return (
     <section className={styles.wrapper} id="gallery">
       <ul className={styles.ticker} ref={ticker}>
-        {new Array(8).fill(undefined).map((_, idx) => (
+        {new Array(8).fill(null).map((_, idx) => (
           <li className={styles.text} key={idx}>
             зашибись
           </li>

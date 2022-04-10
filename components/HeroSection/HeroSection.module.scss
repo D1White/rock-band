@@ -6,6 +6,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+
+  @include sm {
+    height: 508px;
+  }
+  @include xs {
+    height: 100vh;
+  }
 }
 
 .topСurtain {
@@ -13,13 +20,19 @@
   height: 213px;
   position: relative;
   z-index: 1;
-}
 
-.bottomСurtain {
-  width: 100%;
-  height: 156px;
-  position: relative;
-  z-index: 1;
+  @include lg {
+    height: 157px;
+  }
+  @include md {
+    height: 112px;
+  }
+  @include sm {
+    height: 102px;
+  }
+  @include xs {
+    height: 84px;
+  }
 }
 
 .logo {
@@ -30,6 +43,19 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  @include lg {
+    width: 427px;
+    height: 194px;
+  }
+  @include md {
+    width: 303px;
+    height: 137px;
+  }
+  @include xs {
+    width: 214px;
+    height: 95px;
+  }
 }
 
 .bg {

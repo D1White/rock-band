@@ -4,4 +4,29 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  @include r(1562) {
+    padding: 0 40px;
+  }
+  @include lg {
+    max-width: 1162px;
+    padding: 0;
+  }
+  @include r(1162) {
+    padding: 0 30px;
+  }
+  @include md {
+    max-width: 814px;
+    padding: 0;
+  }
+  @include r(814) {
+    padding: 0 30px;
+  }
+  @include sm {
+    max-width: 602px;
+    padding: 0;
+  }
+  @include xs {
+    max-width: initial;
+    padding: 0 18px;
+  }
 }

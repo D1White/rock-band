@@ -5,11 +5,32 @@
   justify-content: center;
   position: relative;
   margin-top: 150px;
+
+  @include lg {
+    margin-top: 130px;
+  }
+  @include md {
+    margin-top: 100px;
+  }
+  @include sm {
+    margin-top: 85px;
+  }
+  @include sm {
+    margin-top: 60px;
+    height: 300px;
+  }
 }
 
 .gallery {
   width: 70%;
   height: 100%;
+
+  @include sm {
+    width: 80%;
+  }
+  @include xs {
+    width: 90%;
+  }
 }
 
 .img {
@@ -36,14 +57,38 @@
   &:disabled {
     opacity: 0.3;
   }
+
+  @include lg {
+    width: 55px;
+    height: 55px;
+  }
+  @include md {
+    width: 40px;
+    height: 40px;
+  }
+  @include sm {
+    display: none;
+  }
 }
 
 .leftBtn {
   left: 150px;
   transform: translateY(-50%) rotate(-90deg);
+  @include lg {
+    left: 110px;
+  }
+  @include md {
+    left: 105px;
+  }
 }
 
 .rightBtn {
   right: 150px;
   transform: translateY(-50%) rotate(90deg);
+  @include lg {
+    right: 110px;
+  }
+  @include md {
+    right: 105 px;
+  }
 }

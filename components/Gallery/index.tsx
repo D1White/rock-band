@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Image from 'next/image';
-import SwiperType from 'swiper';
+import SwiperType, { Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import styles from './Gallery.module.scss';
@@ -47,12 +47,14 @@ const Gallery = () => {
       </button>
 
       <Swiper
+        modules={[Pagination]}
+        pagination={true}
         slidesPerView={1}
         spaceBetween={50}
         grabCursor={true}
         onInit={(ev) => setSwiper(ev)}
         onProgress={(p) => setProgress(p)}
-        className={styles.gallery}
+        className={`${styles.gallery} gallery`}
       >
         {new Array(4).fill(null).map((_, idx) => (
           <SwiperSlide key={idx}>

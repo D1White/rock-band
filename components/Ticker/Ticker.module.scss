@@ -3,8 +3,14 @@
   overflow: hidden;
   margin-top: 55px;
   position: relative;
-
   display: flex;
+
+  @include lg {
+    margin-top: 50px;
+  }
+  @include md {
+    margin-top: 30px;
+  }
 }
 
 .ticker {
@@ -13,6 +19,16 @@
   align-items: center;
   gap: 35px;
   list-style: none;
+
+  @include md {
+    gap: 30px;
+  }
+  @include sm {
+    gap: 20px;
+  }
+  @include xs {
+    gap: 10px;
+  }
 }
 
 .text {
@@ -25,5 +41,18 @@
   &:nth-child(even) {
     color: $black;
     text-shadow: -1px -1px 0 $white, 1px -1px 0 $white, -1px 1px 0 $white, 1px 1px 0 $white;
+  }
+
+  @include lg {
+    font-size: 82px;
+    line-height: 100px;
+  }
+  @include md {
+    font-size: 60px;
+    line-height: 73px;
+  }
+  @include xs {
+    font-size: 30px;
+    line-height: 37px;
   }
 }

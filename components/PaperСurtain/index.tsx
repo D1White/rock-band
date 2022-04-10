@@ -8,7 +8,7 @@ import redPaper from '@img/red-paper.png';
 const PaperСurtain = () => {
   return (
     <div className={styles.wrapper}>
-      <Image src={redPaper} alt="red paper curtain" layout="fill" />
+      <Image src={redPaper} alt="red paper curtain" layout="fill" objectFit="cover" />
     </div>
   );
 };

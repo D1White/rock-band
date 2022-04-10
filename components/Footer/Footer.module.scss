@@ -5,6 +5,23 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @include lg {
+    padding: 45px 0 65px;
+    margin-top: 180px;
+  }
+  @include md {
+    padding: 30px 0 65px;
+    margin-top: 160px;
+  }
+  @include sm {
+    padding: 30px 0 60px;
+    margin-top: 90px;
+  }
+  @include xs {
+    padding: 30px 0 45px;
+    margin-top: 70px;
+  }
 }
 
 .text {
@@ -16,12 +33,36 @@
     font-weight: 500;
     color: #ff0000;
   }
+
+  @include lg {
+    font-size: 16px;
+    margin-top: 40px;
+  }
+  @include md {
+    font-size: 12px;
+    margin-top: 15px;
+  }
+  @include sm {
+    font-size: 14px;
+    margin-top: 17px;
+  }
+  @include xs {
+    font-size: 12px;
+    margin-top: 15px;
+  }
 }
 
 .integration {
   display: flex;
   align-items: center;
   gap: 18px;
+
+  @include lg {
+    gap: 13px;
+  }
+  @include md {
+    gap: 10px;
+  }
 }
 
 .scyterLogo {
@@ -29,11 +70,31 @@
   height: auto;
   position: relative;
   margin-top: 5px;
+
+  @include lg {
+    width: 89px;
+  }
+  @include md {
+    width: 63px;
+  }
+  @include sm {
+    width: 80px;
+  }
 }
 
 .whiteLogo {
   width: 98px;
   height: auto;
+
+  @include lg {
+    width: 74px;
+  }
+  @include md {
+    width: 52px;
+  }
+  @include sm {
+    width: 65px;
+  }
 }
 
 .delimiter {
@@ -41,6 +102,19 @@
   font-size: 24px;
   line-height: 29px;
   text-transform: uppercase;
+
+  @include lg {
+    font-size: 18px;
+    line-height: 22px;
+  }
+  @include md {
+    font-size: 12px;
+    line-height: 15px;
+  }
+  @include sm {
+    font-size: 16px;
+    line-height: 20px;
+  }
 }
 
 .line {
@@ -54,4 +128,11 @@
   border-style: solid;
   border-bottom: none;
   border-top-width: 1.5px;
+
+  @include lg {
+    border-top-width: 1px;
+  }
+  @include xs {
+    border-top-width: 0.5px;
+  }
 }

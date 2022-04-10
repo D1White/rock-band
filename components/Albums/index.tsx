@@ -1,6 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import SwiperType from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import styles from './Albums.module.scss';
@@ -8,6 +7,7 @@ import styles from './Albums.module.scss';
 import Album from '@components/Album';
 
 import blackPaper from '@img/black-paper.jpg';
+import SVGArrowSwipe from '@svg/arrow-swipe.svg';
 
 const AlbumsSection = () => {
   const albums = [
@@ -38,11 +38,35 @@ const AlbumsSection = () => {
     },
   ];
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  const onResize = () => {
+    if (window.matchMedia('(max-width: 599px)').matches) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
+  };
+
+  useEffect(() => {
+    onResize();
+    window.addEventListener('resize', onResize);
+
+    return () => {
+      window.removeEventListener('resize', onResize);
+    };
+  }, []);
+
   return (
     <section className={styles.wrapper} id="music">
+      <div className={styles.swipe}>
+        <span className={styles.swipeText}>swipe</span>
+        <SVGArrowSwipe className={styles.swipeArrow} />
+      </div>
+
       <div className={`container ${styles.container}`}>
         <Swiper
-          slidesPerView={3}
+          slidesPerView={isMobile ? 1 : 3}
           centeredSlides={true}
           slideToClickedSlide={true}
           grabCursor={true}

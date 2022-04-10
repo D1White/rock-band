@@ -15,6 +15,19 @@
   height: 450px;
   display: flex;
   align-items: flex-end;
+
+  @include lg {
+    height: 336px;
+  }
+  @include md {
+    height: 235px;
+  }
+  @include sm {
+    height: 250px;
+  }
+  @include xs {
+    height: 280px;
+  }
 }
 
 .img {
@@ -27,11 +40,45 @@
   width: 300px;
   height: 300px;
   opacity: 0.35;
+
+  @include lg {
+    width: 224px;
+    height: 224px;
+  }
+  @include md {
+    width: 155px;
+    height: 155px;
+  }
+  @include sm {
+    width: 150px;
+    height: 150px;
+  }
+  @include sm {
+    width: 280px;
+    height: 280px;
+  }
 }
 
 .activeCoverImg {
   width: 450px;
   height: 450px;
+
+  @include lg {
+    width: 336px;
+    height: 336px;
+  }
+  @include md {
+    width: 235px;
+    height: 235px;
+  }
+  @include sm {
+    width: 250px;
+    height: 250px;
+  }
+  @include xs {
+    width: 280px;
+    height: 280px;
+  }
 }
 
 .plate {
@@ -44,9 +91,6 @@
 }
 
 .textBlock {
-  bottom: -30px;
-  left: 50%;
-  // display: none;
   transform: scale(0.5);
   display: flex;
   flex-direction: column;
@@ -59,6 +103,10 @@
     opacity: 1;
     transform: scale(1);
   }
+
+  @include sm {
+    margin-top: 7px;
+  }
 }
 
 .name {
@@ -67,6 +115,19 @@
   font-size: 48px;
   line-height: 71px;
   color: $red;
+
+  @include lg {
+    font-size: 38px;
+    line-height: 56px;
+  }
+  @include md {
+    font-size: 28px;
+    line-height: 41px;
+  }
+  @include sm {
+    font-size: 26px;
+    line-height: 38px;
+  }
 }
 
 .year {
@@ -74,4 +135,17 @@
   font-size: 24px;
   line-height: 29px;
   color: $red;
+
+  @include lg {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  @include md {
+    font-size: 18px;
+    line-height: 22px;
+  }
+  @include sm {
+    font-size: 16px;
+    line-height: 20px;
+  }
 }

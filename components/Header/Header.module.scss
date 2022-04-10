@@ -7,6 +7,16 @@
   z-index: 1000;
 
   transition: background 0.3s backdrop-filter 0.3s;
+
+  @include lg {
+    padding: 17px 0 16px;
+  }
+  @include md {
+    padding: 12px 0;
+  }
+  @include sm {
+    padding: 16px 0;
+  }
 }
 
 .scroll {
@@ -28,6 +38,11 @@
   align-items: center;
   justify-content: center;
   z-index: 1;
+
+  @include xs {
+    justify-content: space-between;
+    flex-direction: row;
+  }
 }
 
 .logo {
@@ -37,11 +52,30 @@
   transform: translateY(-50%);
   svg {
     transition: fill 0.3s;
+    width: 100%;
+    height: auto;
+  }
+
+  @include lg {
+    width: 74px;
+  }
+  @include md {
+    width: 55px;
+  }
+  @include xs {
+    width: 66px;
+    position: relative;
+    top: initial;
+    transform: none;
   }
 }
 
 .nav {
   align-self: center;
+
+  @include xs {
+    display: none;
+  }
 }
 
 .navList {
@@ -54,12 +88,20 @@
 .link {
   color: $black;
   font-family: $ff-g;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 34px;
   line-height: 50px;
   text-transform: capitalize;
   position: relative;
   transition: color 0.3s;
+
+  @include lg {
+    font-size: 24px;
+  }
+  @include md {
+    font-size: 18px;
+    line-height: 27px;
+  }
 
   &::after {
     content: '';
@@ -71,6 +113,11 @@
     bottom: 6px;
     transform: translateX(-50%);
     transition: width 0.3s;
+
+    @include lg {
+      height: 1px;
+      bottom: 5px;
+    }
   }
 
   &:hover::after {
@@ -81,5 +128,23 @@
     &::after {
       width: 100%;
     }
+  }
+}
+
+.burgerMenu {
+  display: none;
+  width: 40px;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+
+  div {
+    height: 1.5px;
+    width: 100%;
+    background-color: $black;
+  }
+
+  @include xs {
+    display: flex;
   }
 }

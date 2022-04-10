@@ -22,3 +22,31 @@ body {
     overflow: hidden;
   }
 }
+
+.gallery {
+  .swiper-pagination {
+    display: none !important;
+    @include sm {
+      display: initial !important;
+    }
+    @include xs {
+      bottom: 0px !important;
+    }
+  }
+
+  .swiper-pagination-bullet {
+    width: 6px !important;
+    height: 6px !important;
+    background: $white !important;
+    opacity: 1 !important;
+
+    @include xs {
+      width: 4px !important;
+      height: 4px !important;
+    }
+  }
+
+  .swiper-pagination-bullet-active {
+    background: $red !important;
+  }
+}

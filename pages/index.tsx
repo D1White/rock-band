@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import type { NextPage } from 'next';
 
 import 'swiper/css';
+import 'swiper/css/pagination';
 
 import HeroSection from '@components/HeroSection';
 import About from '@components/About';
@@ -27,10 +28,10 @@ const Home: NextPage = () => {
       {playLoader && <Preloader />}
       <main>
         <HeroSection />
-        <PaperСurtain />
+        <PaperСurtain key={1} />
         <About />
         <Albums />
-        <PaperСurtain />
+        <PaperСurtain key={2} />
         <Concerts />
         <Ticker />
         <Gallery />
