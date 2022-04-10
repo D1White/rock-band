@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import type { NextPage } from 'next';
 
 import 'swiper/css';
@@ -14,18 +13,9 @@ import Gallery from '@components/Gallery';
 import Preloader from '@components/Preloader';
 
 const Home: NextPage = () => {
-  const [playLoader, setPlayLoader] = useState(false);
-
-  useEffect(() => {
-    const loaderPlayed = sessionStorage.getItem('loaderPlayed');
-    if (loaderPlayed !== 'true') {
-      setPlayLoader(true);
-    }
-  }, []);
-
   return (
     <>
-      {playLoader && <Preloader />}
+      <Preloader />
       <main>
         <HeroSection />
         <PaperСurtain key={1} />

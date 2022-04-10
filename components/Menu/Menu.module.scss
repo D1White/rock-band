@@ -1,0 +1,54 @@
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  pointer-events: none;
+
+  display: none;
+
+  @include xs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.bg {
+  width: 100%;
+  height: 96%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 50px;
+}
+
+.linkWrapper {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+}
+
+.link {
+  color: $black;
+  font-family: $ff-g;
+  font-weight: 400;
+  font-size: 38px;
+  line-height: 56px;
+  text-transform: capitalize;
+  pointer-events: all;
+}

@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 import styles from './Header.module.scss';
 
 import ScyterLogo from '@components/ScyterLogo';
+import Menu from '@components/Menu';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [menuVisible, setMenuVisible] = useState(false);
 
   const links = [
     { title: 'about us', href: '#about' },
@@ -29,31 +32,48 @@ const Header = () => {
     };
   }, []);
 
+  const toggleMenu = () => {
+    document.body.classList.toggle('no-scroll');
+    setMenuVisible((value) => !value);
+    if (!menuVisible) {
+      setScrolled(false);
+    }
+  };
+
   return (
-    <header className={`${styles.header} ${scrolled ? styles.scroll : ''}`}>
-      <div className={`container ${styles.container}`}>
-        <a href="#" className={styles.logo}>
-          <ScyterLogo />
-        </a>
+    <>
+      <header className={`${styles.header} ${scrolled ? styles.scroll : ''}`}>
+        <div className={`container ${styles.container}`}>
+          <Link href="/">
+            <a className={styles.logo}>
+              <ScyterLogo />
+            </a>
+          </Link>
 
-        <nav className={styles.nav}>
-          <ul className={styles.navList}>
-            {links.map((link) => (
-              <li key={link.title}>
-                <a href={link.href} className={styles.link}>
-                  {link.title}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+          <nav className={styles.nav}>
+            <ul className={styles.navList}>
+              {links.map((link) => (
+                <li key={link.title}>
+                  <a href={link.href} className={styles.link}>
+                    {link.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-        <button className={styles.burgerMenu}>
-          <div></div>
-          <div></div>
-        </button>
-      </div>
-    </header>
+          <button
+            className={`${styles.burgerMenu} ${menuVisible && styles.active}`}
+            onClick={toggleMenu}
+          >
+            <div></div>
+            <div></div>
+          </button>
+        </div>
+      </header>
+
+      <Menu visible={menuVisible} links={links} toggleMenu={toggleMenu} />
+    </>
   );
 };
 
