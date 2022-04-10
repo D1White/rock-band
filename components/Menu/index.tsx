@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef, Dispatch, SetStateAction, memo } from 'react';
+import { FC, useEffect, useRef, memo } from 'react';
 import Image from 'next/image';
 import { gsap } from 'gsap';
 
@@ -77,7 +77,7 @@ const Menu: FC<MenuProps> = ({ visible, links, toggleMenu }) => {
         ))}
       </nav>
 
-      <div className={`${styles.bg} bg`} ref={bgRef}>
+      <div className={styles.bg} ref={bgRef}>
         <Image src={bg} layout="fill" objectFit="fill" />
       </div>
     </div>

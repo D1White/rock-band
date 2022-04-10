@@ -5,7 +5,7 @@ import styles from './HeroSection.module.scss';
 
 import topCurtain from '@img/red-paper_top.png';
 import heroPhoto from '@img/hero-img.jpg';
-import scyterLogo from '@img/scyther-logo.png';
+import scytherLogo from '@img/scyther-logo.png';
 
 const HeroSection = () => {
   return (
@@ -15,11 +15,11 @@ const HeroSection = () => {
       </div>
 
       <div className={styles.logo}>
-        <Image src={scyterLogo} layout="fill" alt="Scyter" />
+        <Image src={scytherLogo} layout="fill" alt="Scyther" />
       </div>
 
       <div className={styles.bg}>
-        <Image src={heroPhoto} layout="fill" objectFit="cover" alt="Scyter band concert" />
+        <Image src={heroPhoto} layout="fill" objectFit="cover" alt="Scyther band concert" />
       </div>
     </section>
   );

@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import styles from './Footer.module.scss';
 
-import scyterLogo from '@img/scyther-logo.png';
+import scytherLogo from '@img/scyther-logo.png';
 import SVG1WhiteLogo from '@svg/1white_logo.svg';
 
 const Footer = () => {
@@ -11,8 +11,8 @@ const Footer = () => {
     <footer className={styles.wrapper}>
       <hr className={styles.line} />
       <div className={styles.integration}>
-        <div className={styles.scyterLogo}>
-          <Image src={scyterLogo} alt="Scyter band logo" />
+        <div className={styles.scytherLogo}>
+          <Image src={scytherLogo} alt="Scyther band logo" />
         </div>
         <span className={styles.delimiter}>x</span>
         <SVG1WhiteLogo className={styles.whiteLogo} />

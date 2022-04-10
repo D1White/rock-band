@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import styles from './Header.module.scss';
 
-import ScyterLogo from '@components/ScyterLogo';
+import ScytherLogo from '@components/ScytherLogo';
 import Menu from '@components/Menu';
 
 const Header = () => {
@@ -46,7 +46,7 @@ const Header = () => {
         <div className={`container ${styles.container}`}>
           <Link href="/">
             <a className={styles.logo}>
-              <ScyterLogo />
+              <ScytherLogo />
             </a>
           </Link>
 

@@ -24,7 +24,6 @@
 }
 
 .finalText {
-  // width: fit-content;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,11 +56,6 @@
 .textMask {
   position: relative;
   overflow: hidden;
-  // clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-  // bot
-  // clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
-  // top
-  // clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
 }
 
 .text {
@@ -76,28 +70,32 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  // visibility: hidden;
   opacity: 0;
 }
 
 .s {
   font-size: 280px;
-  z-index: 7;
+  z-index: 8;
   visibility: visible;
 }
 
 .c {
   font-size: 250px;
-  z-index: 6;
+  z-index: 7;
 }
 
 .y {
   font-size: 230px;
-  z-index: 5;
+  z-index: 6;
 }
 
 .t {
   font-size: 200px;
+  z-index: 5;
+}
+
+.h {
+  font-size: 180px;
   z-index: 4;
 }
 

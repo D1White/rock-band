@@ -1,10 +1,10 @@
 import { FC } from 'react';
 
-interface ScyterLogoProps {
+interface ScytherLogoProps {
   color?: string;
 }
 
-const ScyterLogo: FC<ScyterLogoProps> = ({ color }) => {
+const ScytherLogo: FC<ScytherLogoProps> = ({ color }) => {
   return (
     <svg
       width="96"
@@ -18,4 +18,4 @@ const ScyterLogo: FC<ScyterLogoProps> = ({ color }) => {
   );
 };
 
-export default ScyterLogo;
+export default ScytherLogo;
