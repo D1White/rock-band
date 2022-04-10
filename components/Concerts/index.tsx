@@ -135,7 +135,7 @@ const Concerts = () => {
           spaceBetween={15}
           className={styles.slider}
           breakpoints={{
-            599: {
+            600: {
               slidesPerView: 5,
             },
           }}

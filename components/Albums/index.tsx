@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -38,25 +37,6 @@ const AlbumsSection = () => {
     },
   ];
 
-  const [isMobile, setIsMobile] = useState(false);
-
-  const onResize = () => {
-    if (window.matchMedia('(max-width: 599px)').matches) {
-      setIsMobile(true);
-    } else {
-      setIsMobile(false);
-    }
-  };
-
-  useEffect(() => {
-    onResize();
-    window.addEventListener('resize', onResize);
-
-    return () => {
-      window.removeEventListener('resize', onResize);
-    };
-  }, []);
-
   return (
     <section className={styles.wrapper} id="music">
       <div className={styles.swipe}>
@@ -66,11 +46,16 @@ const AlbumsSection = () => {
 
       <div className={`container ${styles.container}`}>
         <Swiper
-          slidesPerView={isMobile ? 1 : 3}
+          slidesPerView={1}
           centeredSlides={true}
           slideToClickedSlide={true}
           grabCursor={true}
           speed={800}
+          breakpoints={{
+            600: {
+              slidesPerView: 3,
+            },
+          }}
         >
           {albums.map((album, idx) => (
             <SwiperSlide key={`${album.name}_${album.year}`}>
