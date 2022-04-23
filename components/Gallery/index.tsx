@@ -5,6 +5,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import styles from './Gallery.module.scss';
 
+import { AnimScale } from '@components/animations';
+
 import photo from '@img/photo-1.jpg';
 import SVGArrow from '@svg/arrow-top.svg';
 
@@ -59,7 +61,13 @@ const Gallery = () => {
         {new Array(4).fill(null).map((_, idx) => (
           <SwiperSlide key={idx}>
             <div className={styles.img}>
-              <Image src={photo} alt="" layout="fill" objectFit="contain" />
+              {idx === 0 ? (
+                <AnimScale delay={1}>
+                  <Image src={photo} alt="" layout="fill" objectFit="contain" />
+                </AnimScale>
+              ) : (
+                <Image src={photo} alt="" layout="fill" objectFit="contain" />
+              )}
             </div>
           </SwiperSlide>
         ))}

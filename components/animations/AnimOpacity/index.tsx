@@ -1,32 +1,35 @@
-import { useRef, useEffect, FC } from 'react';
+import { FC, useEffect, useRef } from 'react';
+import classNames from 'classnames';
 import { gsap, Power1 } from 'gsap';
 import scrollTrigger from 'gsap/dist/ScrollTrigger';
 
-import styles from './AnimScale.module.scss';
+import styles from './AnimOpacity.module.scss';
 
 gsap.registerPlugin(scrollTrigger);
 
-interface AnimScaleProps {
+interface Props {
   waitReloader?: boolean;
   direction?: 'up' | 'down';
   duration?: number;
   delay?: number;
-  power?: 1 | 2 | 3;
+  className?: string;
 }
 
-export const AnimScale: FC<AnimScaleProps> = ({
+export const AnimOpacity: FC<Props> = ({
   children,
   waitReloader = false,
-  direction = 'down',
-  duration,
+  direction,
+  duration = 1,
   delay = 0,
-  power = 1,
+  className,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const loaderPlayedStorage = sessionStorage.getItem('loaderPlayed');
     const tlDelay = loaderPlayedStorage !== 'true' && waitReloader ? 4 : delay;
+    const animDirection = direction ? (direction === 'down' ? 100 : -100) : 0;
+    const childrenNodes = ref?.current ? ref.current.children : [];
 
     const tl = gsap.timeline({
       scrollTrigger: ref.current,
@@ -34,13 +37,15 @@ export const AnimScale: FC<AnimScaleProps> = ({
     });
 
     tl.fromTo(
-      ref.current,
+      childrenNodes,
       {
-        scale: direction === 'down' ? 1 + 0.2 * power : 1 - 0.2 * power,
+        yPercent: animDirection,
+        opacity: 0,
       },
       {
-        scale: 1,
-        duration: duration || 1,
+        yPercent: 0,
+        opacity: 1,
+        duration: duration,
         ease: Power1.easeOut,
         delay: tlDelay,
       },
@@ -52,7 +57,7 @@ export const AnimScale: FC<AnimScaleProps> = ({
   }, []);
 
   return (
-    <div ref={ref} className={styles.wrapper}>
+    <div className={classNames(styles.wrapper, className)} ref={ref}>
       {children}
     </div>
   );

@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import AnimScale from '@components/animations/AnimScale';
+import { AnimScale } from '@components/animations';
 
 import styles from './HeroSection.module.scss';
 

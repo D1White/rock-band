@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Image from 'next/image';
 import SwiperType from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -6,90 +6,94 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import styles from './Concerts.module.scss';
 
 import Concert from '@components/Concert';
+import { useOnScreen } from 'hooks';
 
 import redPaperBg from '@img/red-paper-bg.jpg';
 import SVGArrow from '@svg/arrow-top.svg';
 
+const concertsData = [
+  {
+    id: 1,
+    date: '2022-01-18T00:00:00.000Z',
+    place: 'Volume Club',
+    city: 'Kyiv',
+    location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
+  },
+  {
+    id: 2,
+    date: '2022-01-19T00:00:00.000Z',
+    place: 'Арт клуб "Теплый ламповый"',
+    city: 'Kyiv',
+    location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
+  },
+  {
+    id: 3,
+    date: '2022-01-20T00:00:00.000Z',
+    place: 'Volume Club',
+    city: 'Kyiv',
+    location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
+  },
+  {
+    id: 4,
+    date: '2022-01-20T00:00:00.000Z',
+    place: 'Volume Club',
+    city: 'Kyiv',
+    location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
+  },
+  {
+    id: 5,
+    date: '2022-01-18T00:00:00.000Z',
+    place: 'Volume Club',
+    city: 'Kyiv',
+    location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
+  },
+  {
+    id: 6,
+    date: '2022-01-19T00:00:00.000Z',
+    place: 'Volume Club',
+    city: 'Kyiv',
+    location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
+  },
+  {
+    id: 7,
+    date: '2022-01-20T00:00:00.000Z',
+    place: 'Volume Club',
+    city: 'Kyiv',
+    location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
+  },
+  {
+    id: 8,
+    date: '2022-01-20T00:00:00.000Z',
+    place: 'Volume Club',
+    city: 'Kyiv',
+    location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
+  },
+  {
+    id: 9,
+    date: '2022-01-20T00:00:00.000Z',
+    place: 'Volume Club',
+    city: 'Kyiv',
+    location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
+  },
+  {
+    id: 10,
+    date: '2022-01-20T00:00:00.000Z',
+    place: 'Volume Club',
+    city: 'Kyiv',
+    location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
+  },
+  {
+    id: 11,
+    date: '2022-01-20T00:00:00.000Z',
+    place: 'Volume Club',
+    city: 'Kyiv',
+    location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
+  },
+];
+
 const Concerts = () => {
-  const concertsData = [
-    {
-      id: 1,
-      date: '2022-01-18T00:00:00.000Z',
-      place: 'Volume Club',
-      city: 'Kyiv',
-      location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
-    },
-    {
-      id: 2,
-      date: '2022-01-19T00:00:00.000Z',
-      place: 'Арт клуб "Теплый ламповый"',
-      city: 'Kyiv',
-      location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
-    },
-    {
-      id: 3,
-      date: '2022-01-20T00:00:00.000Z',
-      place: 'Volume Club',
-      city: 'Kyiv',
-      location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
-    },
-    {
-      id: 4,
-      date: '2022-01-20T00:00:00.000Z',
-      place: 'Volume Club',
-      city: 'Kyiv',
-      location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
-    },
-    {
-      id: 5,
-      date: '2022-01-18T00:00:00.000Z',
-      place: 'Volume Club',
-      city: 'Kyiv',
-      location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
-    },
-    {
-      id: 6,
-      date: '2022-01-19T00:00:00.000Z',
-      place: 'Volume Club',
-      city: 'Kyiv',
-      location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
-    },
-    {
-      id: 7,
-      date: '2022-01-20T00:00:00.000Z',
-      place: 'Volume Club',
-      city: 'Kyiv',
-      location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
-    },
-    {
-      id: 8,
-      date: '2022-01-20T00:00:00.000Z',
-      place: 'Volume Club',
-      city: 'Kyiv',
-      location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
-    },
-    {
-      id: 9,
-      date: '2022-01-20T00:00:00.000Z',
-      place: 'Volume Club',
-      city: 'Kyiv',
-      location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
-    },
-    {
-      id: 10,
-      date: '2022-01-20T00:00:00.000Z',
-      place: 'Volume Club',
-      city: 'Kyiv',
-      location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
-    },
-    {
-      id: 11,
-      date: '2022-01-20T00:00:00.000Z',
-      place: 'Volume Club',
-      city: 'Kyiv',
-      location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
-    },
-  ];
+  const ref = useRef<HTMLDivElement>(null);
+  const isVisible = useOnScreen(ref, true);
 
   const [swiper, setSwiper] = useState<SwiperType>();
   const [swiperProgress, setSwiperProgress] = useState({
@@ -120,7 +124,7 @@ const Concerts = () => {
 
   return (
     <section className={styles.wrapper} id="concerts">
-      <div className={styles.concerts}>
+      <div className={styles.concerts} ref={ref}>
         <button
           className={`${styles.arrow} ${styles.arrowTop}`}
           onClick={prevSlide}
@@ -142,13 +146,15 @@ const Concerts = () => {
           onInit={(ev) => setSwiper(ev)}
           onProgress={(p) => setProgress(p)}
         >
-          {concertsData.map((concert) => (
+          {concertsData.map((concert, idx) => (
             <SwiperSlide key={concert.id}>
               <Concert
                 date={concert.date}
                 place={concert.place}
                 city={concert.city}
                 location={concert.location}
+                idx={idx}
+                animate={isVisible}
               />
             </SwiperSlide>
           ))}
