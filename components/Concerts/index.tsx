@@ -11,85 +11,7 @@ import { useOnScreen } from 'hooks';
 import redPaperBg from '@img/red-paper-bg.jpg';
 import SVGArrow from '@svg/arrow-top.svg';
 
-const concertsData = [
-  {
-    id: 1,
-    date: '2022-01-18T00:00:00.000Z',
-    place: 'Volume Club',
-    city: 'Kyiv',
-    location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
-  },
-  {
-    id: 2,
-    date: '2022-01-19T00:00:00.000Z',
-    place: 'Арт клуб "Теплый ламповый"',
-    city: 'Kyiv',
-    location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
-  },
-  {
-    id: 3,
-    date: '2022-01-20T00:00:00.000Z',
-    place: 'Volume Club',
-    city: 'Kyiv',
-    location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
-  },
-  {
-    id: 4,
-    date: '2022-01-20T00:00:00.000Z',
-    place: 'Volume Club',
-    city: 'Kyiv',
-    location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
-  },
-  {
-    id: 5,
-    date: '2022-01-18T00:00:00.000Z',
-    place: 'Volume Club',
-    city: 'Kyiv',
-    location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
-  },
-  {
-    id: 6,
-    date: '2022-01-19T00:00:00.000Z',
-    place: 'Volume Club',
-    city: 'Kyiv',
-    location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
-  },
-  {
-    id: 7,
-    date: '2022-01-20T00:00:00.000Z',
-    place: 'Volume Club',
-    city: 'Kyiv',
-    location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
-  },
-  {
-    id: 8,
-    date: '2022-01-20T00:00:00.000Z',
-    place: 'Volume Club',
-    city: 'Kyiv',
-    location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
-  },
-  {
-    id: 9,
-    date: '2022-01-20T00:00:00.000Z',
-    place: 'Volume Club',
-    city: 'Kyiv',
-    location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
-  },
-  {
-    id: 10,
-    date: '2022-01-20T00:00:00.000Z',
-    place: 'Volume Club',
-    city: 'Kyiv',
-    location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
-  },
-  {
-    id: 11,
-    date: '2022-01-20T00:00:00.000Z',
-    place: 'Volume Club',
-    city: 'Kyiv',
-    location: 'https://goo.gl/maps/A3gN5avmthn51JAQ9',
-  },
-];
+import { concertsData } from 'constants/concerts';
 
 const Concerts = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -135,10 +57,13 @@ const Concerts = () => {
 
         <Swiper
           direction="vertical"
-          slidesPerView={10}
+          slidesPerView={7.5}
           spaceBetween={15}
           className={styles.slider}
           breakpoints={{
+            376: {
+              slidesPerView: 10,
+            },
             600: {
               slidesPerView: 5,
             },

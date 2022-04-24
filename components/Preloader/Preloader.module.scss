@@ -40,6 +40,10 @@
   line-height: 100%;
   color: $white;
   transform: translateY(-100%);
+
+  @include xs {
+    font-size: 52px;
+  }
 }
 
 .finalTextRed {
@@ -51,6 +55,10 @@
   text-transform: uppercase;
   transform: scale(1.2);
   opacity: 0;
+
+  @include xs {
+    font-size: 80px;
+  }
 }
 
 .textMask {
@@ -77,34 +85,62 @@
   font-size: 280px;
   z-index: 8;
   visibility: visible;
+
+  @include xs {
+    font-size: 260px;
+  }
 }
 
 .c {
   font-size: 250px;
   z-index: 7;
+
+  @include xs {
+    font-size: 230px;
+  }
 }
 
 .y {
   font-size: 230px;
   z-index: 6;
+
+  @include xs {
+    font-size: 210px;
+  }
 }
 
 .t {
   font-size: 200px;
   z-index: 5;
+
+  @include xs {
+    font-size: 180px;
+  }
 }
 
 .h {
   font-size: 180px;
   z-index: 4;
+
+  @include xs {
+    font-size: 160px;
+  }
 }
 
 .e {
   font-size: 160px;
   z-index: 3;
+
+  @include xs {
+    font-size: 140px;
+  }
 }
 
 .r {
   font-size: 120px;
   z-index: 2;
+
+  @include xs {
+    font-size: 100px;
+  }
 }
