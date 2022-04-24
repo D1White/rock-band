@@ -1,5 +1,6 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { useSwiperSlide } from 'swiper/react';
+import classNames from 'classnames';
 
 import styles from './Album.module.scss';
 
@@ -8,34 +9,44 @@ interface AlbunFC {
   name: string;
   year: string;
   link: string;
-  index: number;
+  animate: boolean;
 }
 
-const Album: FC<AlbunFC> = ({ cover, name, year, link }) => {
+const Album: FC<AlbunFC> = ({ cover, name, year, link, animate }) => {
   const swiperSlide = useSwiperSlide();
-
-  const clickHandler = () => {
-    console.log('click');
-  };
 
   return (
     <a
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      className={`${styles.wrapper} ${swiperSlide.isActive ? styles.active : ''}`}
-      onClick={clickHandler}
+      className={classNames(
+        styles.wrapper,
+        { [styles.active]: swiperSlide.isActive },
+        { [styles.visible]: animate },
+      )}
     >
       <div className={styles.cover}>
         <img
           src={cover}
           alt={name}
-          className={`${styles.img} ${
-            swiperSlide.isActive ? styles.activeCoverImg : styles.coverImg
-          }`}
+          className={classNames(
+            styles.img,
+            {
+              [styles.activeCoverImg]: swiperSlide.isActive,
+              [styles.coverImg]: !swiperSlide.isActive,
+            },
+            { [styles.invisible]: !animate },
+          )}
         />
       </div>
-      <div className={`${styles.textBlock} ${swiperSlide.isActive ? styles.active : ''}`}>
+      <div
+        className={classNames(
+          styles.textBlock,
+          { [styles.active]: swiperSlide.isActive },
+          { [styles.invisible]: !animate },
+        )}
+      >
         <p className={styles.name}>{name}</p>
         <p className={styles.year}>{year}</p>
       </div>
