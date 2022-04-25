@@ -4,6 +4,8 @@ import scrollTrigger from 'gsap/dist/ScrollTrigger';
 
 import styles from './AnimScale.module.scss';
 
+import { useLoaderPlayed } from 'hooks';
+
 gsap.registerPlugin(scrollTrigger);
 
 interface AnimScaleProps {
@@ -24,9 +26,10 @@ export const AnimScale: FC<AnimScaleProps> = ({
 }) => {
   const ref = useRef<HTMLDivElement>(null);
 
+  const loaderPlayed = useLoaderPlayed();
+
   useEffect(() => {
-    const loaderPlayedStorage = sessionStorage.getItem('loaderPlayed');
-    const tlDelay = loaderPlayedStorage !== 'true' && waitReloader ? 4 : delay;
+    const tlDelay = !loaderPlayed && waitReloader ? 4 : delay;
 
     const tl = gsap.timeline({
       scrollTrigger: ref.current,
@@ -49,7 +52,7 @@ export const AnimScale: FC<AnimScaleProps> = ({
     return () => {
       tl.kill();
     };
-  }, []);
+  }, [loaderPlayed]);
 
   return (
     <div ref={ref} className={styles.wrapper}>

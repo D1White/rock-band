@@ -5,6 +5,8 @@ import scrollTrigger from 'gsap/dist/ScrollTrigger';
 
 import styles from './AnimOpacity.module.scss';
 
+import { useLoaderPlayed } from 'hooks';
+
 gsap.registerPlugin(scrollTrigger);
 
 interface Props {
@@ -25,9 +27,10 @@ export const AnimOpacity: FC<Props> = ({
 }) => {
   const ref = useRef<HTMLDivElement>(null);
 
+  const loaderPlayed = useLoaderPlayed();
+
   useEffect(() => {
-    const loaderPlayedStorage = sessionStorage.getItem('loaderPlayed');
-    const tlDelay = loaderPlayedStorage !== 'true' && waitReloader ? 4 : delay;
+    const tlDelay = !loaderPlayed && waitReloader ? 4 : delay;
     const animDirection = direction ? (direction === 'down' ? 100 : -100) : 0;
     const childrenNodes = ref?.current ? ref.current.children : [];
 
@@ -54,7 +57,7 @@ export const AnimOpacity: FC<Props> = ({
     return () => {
       tl.kill();
     };
-  }, []);
+  }, [loaderPlayed]);
 
   return (
     <div className={classNames(styles.wrapper, className)} ref={ref}>
