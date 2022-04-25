@@ -11,10 +11,12 @@ import Concerts from '@components/Concerts';
 import Ticker from '@components/Ticker';
 import Gallery from '@components/Gallery';
 import Preloader from '@components/Preloader';
+import SEO from '@components/SEO';
 
 const Home: NextPage = () => {
   return (
     <>
+      <SEO title="Home" description="Scyther band website" />
       <Preloader />
       <main>
         <HeroSection />
