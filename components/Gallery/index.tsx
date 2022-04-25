@@ -69,10 +69,16 @@ const Gallery: FC<Props> = ({ data }) => {
             <div className={styles.img}>
               {idx === 0 ? (
                 <AnimScale delay={1}>
-                  <img src={photo.fields.file.url} alt={photo.fields.title} />
+                  <picture>
+                    <source srcSet={`${photo.fields.file.url}?fm=webp`} type="image/webp" />
+                    <img src={photo.fields.file.url} alt={photo.fields.title} />
+                  </picture>
                 </AnimScale>
               ) : (
-                <img src={photo.fields.file.url} alt={photo.fields.title} />
+                <picture>
+                  <source srcSet={`${photo.fields.file.url}?fm=webp`} type="image/webp" />
+                  <img src={photo.fields.file.url} alt={photo.fields.title} />
+                </picture>
               )}
             </div>
           </SwiperSlide>
