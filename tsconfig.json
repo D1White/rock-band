@@ -23,6 +23,8 @@
       "@img/*": ["assets/img/*"],
       "@svg/*": ["assets/svg/*"],
       "@hooks/*": ["hooks/*"],
+      "@types/*": ["types/*"],
+      "@utils/*": ["utils/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
