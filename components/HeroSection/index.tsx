@@ -16,7 +16,7 @@ const HeroSection: FC<Props> = ({ data }) => {
   return (
     <section className={styles.hero}>
       <div className={styles.topСurtain}>
-        <Image src={topCurtain} layout="fill" objectFit="cover" />
+        <Image src={topCurtain} layout="fill" objectFit="cover" alt="paper curtain" />
       </div>
 
       <div className={styles.logo}>

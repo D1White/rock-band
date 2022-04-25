@@ -1,5 +1,5 @@
 import { useState, FC } from 'react';
-import Image from 'next/image';
+import classNames from 'classnames';
 import SwiperType, { Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -7,7 +7,6 @@ import styles from './Gallery.module.scss';
 
 import { AnimScale } from '@components/animations';
 
-import photo from '@img/photo-1.jpg';
 import SVGArrow from '@svg/arrow-top.svg';
 
 import { IGallery } from 'types/contentful';
@@ -47,9 +46,10 @@ const Gallery: FC<Props> = ({ data }) => {
   return (
     <section className={styles.wrapper}>
       <button
-        className={`${styles.btn} ${styles.leftBtn}`}
+        className={classNames(styles.btn, styles.leftBtn)}
         onClick={prevSlide}
         disabled={swiperProgress.isBeginning}
+        aria-label="arrow left"
       >
         <SVGArrow />
       </button>
@@ -80,9 +80,10 @@ const Gallery: FC<Props> = ({ data }) => {
       </Swiper>
 
       <button
-        className={`${styles.btn} ${styles.rightBtn}`}
+        className={classNames(styles.btn, styles.rightBtn)}
         onClick={nextSlide}
         disabled={swiperProgress.isEnd}
+        aria-label="arrow right"
       >
         <SVGArrow />
       </button>

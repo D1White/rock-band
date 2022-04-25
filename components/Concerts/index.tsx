@@ -58,6 +58,7 @@ const Concerts: FC<Props> = ({ concerts }) => {
           className={classNames(styles.arrow, styles.arrowTop)}
           onClick={prevSlide}
           disabled={swiperProgress.isBeginning}
+          aria-label="arrow top"
         >
           <SVGArrow />
         </button>
@@ -97,12 +98,13 @@ const Concerts: FC<Props> = ({ concerts }) => {
           className={classNames(styles.arrow, styles.arrowBottom)}
           onClick={nextSlide}
           disabled={swiperProgress.isEnd}
+          aria-label="arrow bottom"
         >
           <SVGArrow />
         </button>
       </div>
       <div className={styles.bg}>
-        <Image src={redPaperBg} layout="fill" />
+        <Image src={redPaperBg} layout="fill" alt="red paper" />
       </div>
     </section>
   );

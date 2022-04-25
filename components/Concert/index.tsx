@@ -1,5 +1,4 @@
 import { FC, useEffect, useRef, memo } from 'react';
-import classNames from 'classnames';
 import { gsap, Power1 } from 'gsap';
 
 import styles from './Concert.module.scss';
@@ -51,13 +50,16 @@ const Concert: FC<ConcertProps> = ({ date, place, city, location, animate, idx }
           { opacity: 0 },
           { opacity: 1, duration: 1, ease: Power1.easeOut, delay: delay },
           0.5,
-        )
-        .fromTo(
+        );
+
+      if (locationRef.current) {
+        tl.fromTo(
           locationRef.current,
           { opacity: 0 },
           { opacity: 1, duration: 1, ease: Power1.easeOut, delay: delay },
           0.5,
         );
+      }
     }
   }, [animate]);
 
@@ -73,15 +75,21 @@ const Concert: FC<ConcertProps> = ({ date, place, city, location, animate, idx }
         <p className={styles.city}>{city}</p>
       </div>
 
-      <a
-        href={location}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={classNames(styles.location, { [styles.disable]: !location })}
-        ref={locationRef}
-      >
-        location
-      </a>
+      {location ? (
+        <a
+          href={location}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.location}
+          ref={locationRef}
+        >
+          location
+        </a>
+      ) : (
+        <button className={styles.location} disabled>
+          location
+        </button>
+      )}
 
       <hr className={styles.line} ref={lineRef} />
     </div>

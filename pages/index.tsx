@@ -1,5 +1,4 @@
-import type { NextPage, GetServerSideProps, GetStaticProps } from 'next';
-import { useEffect } from 'react';
+import type { NextPage, GetServerSideProps } from 'next';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -28,10 +27,6 @@ interface Props {
 }
 
 const Home: NextPage<Props> = ({ heroData, about, albums, concerts, gallery }) => {
-  useEffect(() => {
-    console.log(gallery);
-  }, []);
-
   return (
     <>
       <SEO title={seo.main.title} description={seo.main.description} />

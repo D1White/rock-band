@@ -25,6 +25,7 @@ const Album: FC<AlbunFC> = ({ cover, name, year, link, animate }) => {
         { [styles.active]: swiperSlide.isActive },
         { [styles.visible]: animate },
       )}
+      aria-label={`${name} album`}
     >
       <div className={styles.cover}>
         <img

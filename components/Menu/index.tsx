@@ -78,7 +78,7 @@ const Menu: FC<MenuProps> = ({ visible, links, toggleMenu }) => {
       </nav>
 
       <div className={styles.bg} ref={bgRef}>
-        <Image src={bg} layout="fill" objectFit="fill" />
+        <Image src={bg} layout="fill" objectFit="fill" alt="paper background" />
       </div>
     </div>
   );

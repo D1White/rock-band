@@ -87,7 +87,7 @@ const Header = () => {
       <header className={`${styles.header} ${scrolled ? styles.scroll : ''}`}>
         <div className={`container ${styles.container}`}>
           <Link href="/">
-            <a className={styles.logo} ref={logoRef}>
+            <a className={styles.logo} ref={logoRef} aria-label="Scyther">
               <ScytherLogo />
             </a>
           </Link>
@@ -107,6 +107,7 @@ const Header = () => {
           <button
             className={`${styles.burgerMenu} ${menuVisible && styles.active}`}
             onClick={toggleMenu}
+            aria-label="burger menu toggle"
           >
             <div></div>
             <div></div>

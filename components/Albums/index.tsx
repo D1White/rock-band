@@ -58,7 +58,7 @@ const AlbumsSection: FC<Props> = ({ albums }) => {
         </Swiper>
       </div>
       <div className={styles.bg}>
-        <Image src={blackPaper} layout="fill" />
+        <Image src={blackPaper} layout="fill" alt="black paper" />
       </div>
     </section>
   );
