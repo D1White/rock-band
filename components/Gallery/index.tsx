@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, FC } from 'react';
 import Image from 'next/image';
 import SwiperType, { Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -10,7 +10,13 @@ import { AnimScale } from '@components/animations';
 import photo from '@img/photo-1.jpg';
 import SVGArrow from '@svg/arrow-top.svg';
 
-const Gallery = () => {
+import { IGallery } from 'types/contentful';
+
+interface Props {
+  data: IGallery;
+}
+
+const Gallery: FC<Props> = ({ data }) => {
   const [swiper, setSwiper] = useState<SwiperType>();
   const [swiperProgress, setSwiperProgress] = useState({
     isBeginning: false,
@@ -58,15 +64,15 @@ const Gallery = () => {
         onProgress={(p) => setProgress(p)}
         className={`${styles.gallery} gallery`}
       >
-        {new Array(4).fill(null).map((_, idx) => (
-          <SwiperSlide key={idx}>
+        {data.fields?.photo.map((photo, idx) => (
+          <SwiperSlide key={photo.sys.id}>
             <div className={styles.img}>
               {idx === 0 ? (
                 <AnimScale delay={1}>
-                  <Image src={photo} alt="" layout="fill" objectFit="contain" />
+                  <img src={photo.fields.file.url} alt={photo.fields.title} />
                 </AnimScale>
               ) : (
-                <Image src={photo} alt="" layout="fill" objectFit="contain" />
+                <img src={photo.fields.file.url} alt={photo.fields.title} />
               )}
             </div>
           </SwiperSlide>

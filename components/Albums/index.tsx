@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { FC, useRef } from 'react';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import classNames from 'classnames';
@@ -11,18 +11,24 @@ import { useOnScreen } from 'hooks';
 import blackPaper from '@img/black-paper.jpg';
 import SVGArrowSwipe from '@svg/arrow-swipe.svg';
 
-import { albums } from 'constants/albums';
+import { IAlbum } from 'types/contentful';
 
-const AlbumsSection = () => {
+interface Props {
+  albums: IAlbum[];
+}
+
+const AlbumsSection: FC<Props> = ({ albums }) => {
   const ref = useRef<HTMLDivElement>(null);
   const isVisible = useOnScreen(ref, true, 800);
 
   return (
     <section className={styles.wrapper} id="music">
-      <div className={styles.swipe}>
-        <span className={styles.swipeText}>swipe</span>
-        <SVGArrowSwipe className={styles.swipeArrow} />
-      </div>
+      {albums.length > 1 && (
+        <div className={styles.swipe}>
+          <span className={styles.swipeText}>swipe</span>
+          <SVGArrowSwipe className={styles.swipeArrow} />
+        </div>
+      )}
 
       <div className={classNames('container', styles.container)} ref={ref}>
         <Swiper
@@ -32,18 +38,19 @@ const AlbumsSection = () => {
           grabCursor={true}
           speed={800}
           breakpoints={{
-            600: {
+            770: {
               slidesPerView: 3,
             },
           }}
+          className={styles.swiper}
         >
           {albums.map((album) => (
-            <SwiperSlide key={`${album.name}_${album.year}`}>
+            <SwiperSlide key={album.sys.id}>
               <Album
-                cover={album.cover}
-                name={album.name}
-                link={album.link}
-                year={album.year}
+                cover={album.fields.cover.fields.file.url}
+                name={album.fields.name}
+                link={album.fields.link}
+                year={album.fields.year}
                 animate={isVisible}
               />
             </SwiperSlide>

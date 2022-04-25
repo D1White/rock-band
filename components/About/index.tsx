@@ -1,69 +1,42 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import styles from './About.module.scss';
 
 import Participant from '@components/Participant';
 import { AnimOpacity } from '@components/animations';
 
-const About = () => {
-  const data = [
-    {
-      img: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80',
-      name: 'Oleksii Kolotenko',
-      instagram: 'oleshaz',
-    },
-    {
-      img: 'https://images.genius.com/4fb5166827e0eb0f2e6c9c9bf18965fe.1000x1000x1.png',
-      name: 'Oleksii Kolotenko',
-      instagram: 'freakoutofhouse',
-    },
-    {
-      img: 'https://images.genius.com/4fb5166827e0eb0f2e6c9c9bf18965fe.1000x1000x1.png',
-      name: 'Oleksii Kolotenko',
-      instagram: 'jack1enorton',
-    },
-    {
-      img: 'https://images.genius.com/4fb5166827e0eb0f2e6c9c9bf18965fe.1000x1000x1.png',
-      name: 'Oleksii Kolotenko',
-      instagram: 'andrey_kartoha',
-    },
-    {
-      img: 'https://images.genius.com/4fb5166827e0eb0f2e6c9c9bf18965fe.1000x1000x1.png',
-      name: 'Oleksii Kolotenko',
-      instagram: '_vickucha_slts',
-    },
-  ];
+import { IAbout } from 'types/contentful';
+
+interface Props {
+  data: IAbout;
+}
+
+const About: FC<Props> = ({ data }) => {
+  const instagramLink = data.fields.instagram.replace('@', '');
 
   return (
     <section className={styles.wrapper} id="about">
       <div className={`container ${styles.container}`}>
         <div className={styles.team}>
-          {data.map((item) => (
+          {data.fields.participant.map((item) => (
             <Participant
-              name={item.name}
-              img={item.img}
-              instagram={item.instagram}
-              key={`${item.name}_${item.instagram}`}
+              name={item.fields.name}
+              img={item.fields.photo.fields.file.url}
+              instagram={item.fields.instagram}
+              key={item.sys.id}
             />
           ))}
         </div>
         <AnimOpacity delay={1.2}>
-          <p className={styles.text}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-            mollit anim id est laborum.
-          </p>
+          <p className={styles.text}>{data.fields.about}</p>
         </AnimOpacity>
         <a
-          href="https://www.instagram.com/scyther_band/"
+          href={`https://www.instagram.com/${instagramLink}/`}
           target="_blank"
           rel="noopener noreferrer"
           className={styles.link}
         >
-          @scyther_band
+          {data.fields.instagram}
         </a>
       </div>
     </section>

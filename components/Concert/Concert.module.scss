@@ -171,6 +171,12 @@
   @include xs {
     display: none;
   }
+
+  &.disable {
+    pointer-events: none;
+    background-color: rgba($black, 0.0);
+    color: rgba($white, 0);
+  }
 }
 
 .line {

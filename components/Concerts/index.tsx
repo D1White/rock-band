@@ -1,7 +1,8 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, FC } from 'react';
 import Image from 'next/image';
 import SwiperType from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import classNames from 'classnames';
 
 import styles from './Concerts.module.scss';
 
@@ -11,9 +12,15 @@ import { useOnScreen } from 'hooks';
 import redPaperBg from '@img/red-paper-bg.jpg';
 import SVGArrow from '@svg/arrow-top.svg';
 
-import { concertsData } from 'constants/concerts';
+// import { concertsData } from 'constants/concerts';
 
-const Concerts = () => {
+import { IConcert } from 'types/contentful';
+
+interface Props {
+  concerts?: IConcert[];
+}
+
+const Concerts: FC<Props> = ({ concerts }) => {
   const ref = useRef<HTMLDivElement>(null);
   const isVisible = useOnScreen(ref, true);
 
@@ -48,7 +55,7 @@ const Concerts = () => {
     <section className={styles.wrapper} id="concerts">
       <div className={styles.concerts} ref={ref}>
         <button
-          className={`${styles.arrow} ${styles.arrowTop}`}
+          className={classNames(styles.arrow, styles.arrowTop)}
           onClick={prevSlide}
           disabled={swiperProgress.isBeginning}
         >
@@ -71,22 +78,23 @@ const Concerts = () => {
           onInit={(ev) => setSwiper(ev)}
           onProgress={(p) => setProgress(p)}
         >
-          {concertsData.map((concert, idx) => (
-            <SwiperSlide key={concert.id}>
-              <Concert
-                date={concert.date}
-                place={concert.place}
-                city={concert.city}
-                location={concert.location}
-                idx={idx}
-                animate={isVisible}
-              />
-            </SwiperSlide>
-          ))}
+          {concerts &&
+            concerts.map((concert, idx) => (
+              <SwiperSlide key={concert.sys.id}>
+                <Concert
+                  date={concert.fields.date}
+                  place={concert.fields.place}
+                  city={concert.fields.city}
+                  location={concert.fields.location}
+                  idx={idx}
+                  animate={isVisible}
+                />
+              </SwiperSlide>
+            ))}
         </Swiper>
 
         <button
-          className={`${styles.arrow} ${styles.arrowBottom}`}
+          className={classNames(styles.arrow, styles.arrowBottom)}
           onClick={nextSlide}
           disabled={swiperProgress.isEnd}
         >

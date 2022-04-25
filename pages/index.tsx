@@ -1,4 +1,5 @@
-import type { NextPage } from 'next';
+import type { NextPage, GetServerSideProps, GetStaticProps } from 'next';
+import { useEffect } from 'react';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -13,23 +14,64 @@ import Gallery from '@components/Gallery';
 import Preloader from '@components/Preloader';
 import SEO from '@components/SEO';
 
-const Home: NextPage = () => {
+import { getHero, getAbout, getAlbums, getConcerts, getGallery } from '@utils/api';
+import seo from 'constants/seo';
+
+import { IHero, IAbout, IAlbum, IConcert, IGallery } from 'types/contentful';
+
+interface Props {
+  heroData?: IHero;
+  about?: IAbout;
+  albums?: IAlbum[];
+  concerts?: IConcert[];
+  gallery?: IGallery;
+}
+
+const Home: NextPage<Props> = ({ heroData, about, albums, concerts, gallery }) => {
+  useEffect(() => {
+    console.log(gallery);
+  }, []);
+
   return (
     <>
-      <SEO title="Home" description="Scyther band website" />
+      <SEO title={seo.main.title} description={seo.main.description} />
       <Preloader />
       <main>
-        <HeroSection />
-        <PaperСurtain key={1} />
-        <About />
-        <Albums />
-        <PaperСurtain key={2} />
-        <Concerts />
+        <HeroSection data={heroData} />
+
+        {about && (
+          <>
+            <PaperСurtain key={1} />
+            <About data={about} />
+          </>
+        )}
+
+        {albums && (
+          <>
+            <Albums albums={albums} />
+            <PaperСurtain key={2} />
+          </>
+        )}
+
+        <Concerts concerts={concerts} />
         <Ticker />
-        <Gallery />
+
+        {gallery && <Gallery data={gallery} />}
       </main>
     </>
   );
 };
 
 export default Home;
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const heroData = await getHero();
+  const about = await getAbout();
+  const albums = await getAlbums();
+  const concerts = await getConcerts();
+  const gallery = await getGallery();
+
+  return {
+    props: { heroData, about, albums, concerts, gallery },
+  };
+};

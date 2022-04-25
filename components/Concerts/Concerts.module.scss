@@ -136,8 +136,5 @@
 
 .slider {
   width: 100%;
-
-  @include xs {
-    height: 100%;
-  }
+  height: 100%;
 }

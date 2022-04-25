@@ -1,4 +1,5 @@
 import { FC, useEffect, useRef, memo } from 'react';
+import classNames from 'classnames';
 import { gsap, Power1 } from 'gsap';
 
 import styles from './Concert.module.scss';
@@ -7,7 +8,7 @@ interface ConcertProps {
   date: string;
   place: string;
   city: string;
-  location: string;
+  location?: string;
   idx: number;
   animate: boolean;
 }
@@ -76,7 +77,7 @@ const Concert: FC<ConcertProps> = ({ date, place, city, location, animate, idx }
         href={location}
         target="_blank"
         rel="noopener noreferrer"
-        className={styles.location}
+        className={classNames(styles.location, { [styles.disable]: !location })}
         ref={locationRef}
       >
         location

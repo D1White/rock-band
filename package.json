@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "contentful-types-codegen": "contentful-typescript-codegen --output types/contentful.d.ts"
+    "contentful-types-codegen": "contentful-typescript-codegen --output types/contentful/index.d.ts"
   },
   "dependencies": {
     "classnames": "^2.3.1",

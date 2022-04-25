@@ -4,9 +4,6 @@
   align-items: center;
   position: relative;
   pointer-events: none;
-  // opacity: 0;
-  // transition: opacity 0.5s ease-out;
-  // transition-delay: 1s;
 
   &.active {
     cursor: pointer;
@@ -41,6 +38,7 @@
 .img {
   z-index: 1;
   position: relative;
+  object-fit: cover;
   transition: width 0.5s, height 0.5s, opacity 0.5s;
 
   &.invisible {
@@ -135,8 +133,8 @@
   color: $red;
 
   @include lg {
-    font-size: 38px;
-    line-height: 56px;
+    font-size: 36px;
+    line-height: 54px;
   }
   @include md {
     font-size: 28px;

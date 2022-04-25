@@ -1,14 +1,18 @@
+import { FC } from 'react';
 import Image from 'next/image';
+import { IHero } from 'types/contentful';
 
 import { AnimScale } from '@components/animations';
 
 import styles from './HeroSection.module.scss';
 
 import topCurtain from '@img/red-paper_top.png';
-import heroPhoto from '@img/hero-img.jpg';
-import scytherLogo from '@img/scyther-logo.png';
 
-const HeroSection = () => {
+interface Props {
+  data?: IHero;
+}
+
+const HeroSection: FC<Props> = ({ data }) => {
   return (
     <section className={styles.hero}>
       <div className={styles.topСurtain}>
@@ -17,13 +21,13 @@ const HeroSection = () => {
 
       <div className={styles.logo}>
         <AnimScale waitReloader direction="up">
-          <Image src={scytherLogo} layout="fill" alt="Scyther" />
+          <img src={data?.fields.logo.fields.file.url} alt="Scyther band logo" />
         </AnimScale>
       </div>
 
       <div className={styles.bg}>
         <AnimScale waitReloader>
-          <Image src={heroPhoto} layout="fill" objectFit="cover" alt="Scyther band concert" />
+          <img src={data?.fields.bg.fields.file.url} alt="Scyther band concert" />
         </AnimScale>
       </div>
     </section>
