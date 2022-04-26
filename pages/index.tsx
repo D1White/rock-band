@@ -35,8 +35,8 @@ const Home: NextPage<Props> = ({ heroData, about, albums, concerts, gallery }) =
         keywords={seo.main.keywords}
         ogTitle={seo.main.ogTitle}
         ogDescription={seo.main.ogDescription}
-        image={heroData?.fields.logo.fields.file.url}
-        ogImage={heroData?.fields.logo.fields.file.url}
+        image={heroData?.fields.bg.fields.file.url}
+        ogImage={heroData?.fields.bg.fields.file.url}
       />
       <Preloader />
       <main>
