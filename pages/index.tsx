@@ -29,7 +29,15 @@ interface Props {
 const Home: NextPage<Props> = ({ heroData, about, albums, concerts, gallery }) => {
   return (
     <>
-      <SEO title={seo.main.title} description={seo.main.description} />
+      <SEO
+        title={seo.main.title}
+        description={seo.main.description}
+        keywords={seo.main.keywords}
+        ogTitle={seo.main.ogTitle}
+        ogDescription={seo.main.ogDescription}
+        image={heroData?.fields.logo.fields.file.url}
+        ogImage={heroData?.fields.logo.fields.file.url}
+      />
       <Preloader />
       <main>
         <HeroSection data={heroData} />
