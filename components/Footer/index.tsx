@@ -88,7 +88,7 @@ const Footer = () => {
       <div className={styles.text__wrapper} ref={textRef}>
         <p className={styles.text}>
           Developed by{' '}
-          <a href="https://1white.netlify.app/" target="_blank" rel="noopener noreferrer">
+          <a href="https://danylo-bilyi.site/" target="_blank" rel="noopener noreferrer">
             Danylo Bilyi
           </a>
         </p>
