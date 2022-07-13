@@ -1,6 +1,6 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import { useSwiperSlide } from 'swiper/react';
-import classNames from 'classnames';
+import cn from 'classnames';
 
 import styles from './Album.module.scss';
 
@@ -20,7 +20,7 @@ const Album: FC<AlbunFC> = ({ cover, name, year, link, animate }) => {
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      className={classNames(
+      className={cn(
         styles.wrapper,
         { [styles.active]: swiperSlide.isActive },
         { [styles.visible]: animate },
@@ -31,7 +31,7 @@ const Album: FC<AlbunFC> = ({ cover, name, year, link, animate }) => {
         <img
           src={cover}
           alt={name}
-          className={classNames(
+          className={cn(
             styles.img,
             {
               [styles.activeCoverImg]: swiperSlide.isActive,
@@ -42,7 +42,7 @@ const Album: FC<AlbunFC> = ({ cover, name, year, link, animate }) => {
         />
       </div>
       <div
-        className={classNames(
+        className={cn(
           styles.textBlock,
           { [styles.active]: swiperSlide.isActive },
           { [styles.invisible]: !animate },

@@ -2,7 +2,6 @@ import React from 'react';
 import Image from 'next/image';
 
 import styles from './PaperСurtain.module.scss';
-
 import redPaper from '@img/red-paper.png';
 
 const PaperСurtain = () => {

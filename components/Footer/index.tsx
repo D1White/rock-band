@@ -4,9 +4,6 @@ import { gsap, Power1 } from 'gsap';
 import scrollTrigger from 'gsap/dist/ScrollTrigger';
 
 import styles from './Footer.module.scss';
-
-import { AnimScale } from '@components/animations';
-
 import scytherLogo from '@img/scyther-logo.png';
 import SVG1WhiteLogo from '@svg/1white_logo.svg';
 
