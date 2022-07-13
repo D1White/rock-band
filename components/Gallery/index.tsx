@@ -1,15 +1,19 @@
-import { useState, FC } from 'react';
-import classNames from 'classnames';
+import { useState, FC, useCallback } from 'react';
+import cn from 'classnames';
 import SwiperType, { Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import styles from './Gallery.module.scss';
-
 import { AnimScale } from '@components/animations';
-
 import SVGArrow from '@svg/arrow-top.svg';
-
 import { IGallery } from 'types/contentful';
+
+const GalleryImg = ({ src, alt }: { src: string; alt: string }) => (
+  <picture>
+    <source srcSet={`${src}?fm=webp`} type="image/webp" />
+    <img src={src} alt={alt} />
+  </picture>
+);
 
 interface Props {
   data: IGallery;
@@ -22,31 +26,31 @@ const Gallery: FC<Props> = ({ data }) => {
     isEnd: false,
   });
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     if (swiper) {
       swiper.slideNext();
     }
-  };
+  }, [swiper]);
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     if (swiper) {
       swiper.slidePrev();
     }
-  };
+  }, [swiper]);
 
-  const setProgress = (sw: SwiperType) => {
+  const setProgress = useCallback((sw: SwiperType) => {
     if (sw) {
       setSwiperProgress({
         isBeginning: sw.isBeginning,
         isEnd: sw.isEnd,
       });
     }
-  };
+  }, []);
 
   return (
     <section className={styles.wrapper}>
       <button
-        className={classNames(styles.btn, styles.leftBtn)}
+        className={cn(styles.btn, styles.leftBtn)}
         onClick={prevSlide}
         disabled={swiperProgress.isBeginning}
         aria-label="arrow left"
@@ -60,8 +64,8 @@ const Gallery: FC<Props> = ({ data }) => {
         slidesPerView={1}
         spaceBetween={50}
         grabCursor={true}
-        onInit={(ev) => setSwiper(ev)}
-        onProgress={(p) => setProgress(p)}
+        onInit={setSwiper}
+        onProgress={setProgress}
         className={`${styles.gallery} gallery`}
       >
         {data.fields?.photo.map((photo, idx) => (
@@ -69,16 +73,10 @@ const Gallery: FC<Props> = ({ data }) => {
             <div className={styles.img}>
               {idx === 0 ? (
                 <AnimScale delay={1}>
-                  <picture>
-                    <source srcSet={`${photo.fields.file.url}?fm=webp`} type="image/webp" />
-                    <img src={photo.fields.file.url} alt={photo.fields.title} />
-                  </picture>
+                  <GalleryImg src={photo.fields.file.url} alt={photo.fields.title} />
                 </AnimScale>
               ) : (
-                <picture>
-                  <source srcSet={`${photo.fields.file.url}?fm=webp`} type="image/webp" />
-                  <img src={photo.fields.file.url} alt={photo.fields.title} />
-                </picture>
+                <GalleryImg src={photo.fields.file.url} alt={photo.fields.title} />
               )}
             </div>
           </SwiperSlide>
@@ -86,7 +84,7 @@ const Gallery: FC<Props> = ({ data }) => {
       </Swiper>
 
       <button
-        className={classNames(styles.btn, styles.rightBtn)}
+        className={cn(styles.btn, styles.rightBtn)}
         onClick={nextSlide}
         disabled={swiperProgress.isEnd}
         aria-label="arrow right"

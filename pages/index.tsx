@@ -15,7 +15,6 @@ import SEO from '@components/SEO';
 
 import { getHero, getAbout, getAlbums, getConcerts, getGallery } from '@utils/api';
 import seo from 'constants/seo';
-
 import { IHero, IAbout, IAlbum, IConcert, IGallery } from 'types/contentful';
 
 interface Props {

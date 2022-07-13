@@ -1,7 +1,7 @@
 import { FC, useRef } from 'react';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import classNames from 'classnames';
+import cn from 'classnames';
 
 import styles from './Albums.module.scss';
 
@@ -30,7 +30,7 @@ const AlbumsSection: FC<Props> = ({ albums }) => {
         </div>
       )}
 
-      <div className={classNames('container', styles.container)} ref={ref}>
+      <div className={cn('container', styles.container)} ref={ref}>
         <Swiper
           slidesPerView={1}
           centeredSlides={true}

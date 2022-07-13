@@ -3,9 +3,7 @@ import Image from 'next/image';
 import { IHero } from 'types/contentful';
 
 import { AnimScale } from '@components/animations';
-
 import styles from './HeroSection.module.scss';
-
 import topCurtain from '@img/red-paper_top.png';
 
 interface Props {
