@@ -4,7 +4,7 @@ import { gsap, Power1 } from 'gsap';
 import scrollTrigger from 'gsap/dist/ScrollTrigger';
 
 import styles from './Footer.module.scss';
-import scytherLogo from '@img/scyther-logo.png';
+import sytherLogo from '@img/syther-logo.png';
 import SVG1WhiteLogo from '@svg/1white_logo.svg';
 
 gsap.registerPlugin(scrollTrigger);
@@ -73,8 +73,8 @@ const Footer = () => {
       <hr className={styles.line} ref={lineRef} />
 
       <div className={styles.integration} ref={integrationRef}>
-        <div className={styles.scytherLogo}>
-          <Image src={scytherLogo} alt="Scyther band logo" />
+        <div className={styles.sytherLogo}>
+          <Image src={sytherLogo} alt="Syther band logo" />
         </div>
 
         <span className={styles.delimiter}>x</span>

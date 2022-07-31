@@ -28,10 +28,17 @@ const Concerts: FC<Props> = ({ concerts }) => {
   const filterConcerts = useMemo(() => {
     if (!concerts) return [];
     const date = new Date();
-    return concerts.filter((concert) => {
-      const concertDate = new Date(concert.fields.date);
-      return +date <= +concertDate;
-    });
+
+    const result = concerts
+      .filter((concert) => {
+        const concertDate = new Date(concert.fields.date);
+        return +date <= +concertDate;
+      })
+      .sort((a, b) => {
+        return +new Date(a.fields.date) - +new Date(b.fields.date);
+      });
+
+    return result;
   }, [concerts]);
 
   const nextSlide = useCallback(() => {
@@ -71,6 +78,8 @@ const Concerts: FC<Props> = ({ concerts }) => {
           direction="vertical"
           slidesPerView={7.5}
           spaceBetween={15}
+          allowTouchMove={false}
+          noSwiping
           className={styles.slider}
           breakpoints={{
             376: {

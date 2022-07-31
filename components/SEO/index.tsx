@@ -22,14 +22,14 @@ const SEO: FC<SEOProps> = ({
 }) => {
   return (
     <Head>
-      <title>{title ? `Scyther band | ${title}` : 'Scyther band'}</title>
+      <title>{title ? `Syther band | ${title}` : 'Syther band'}</title>
       <meta name={title} content={description} />
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
       {image && <meta name="image" content={image} />}
       <link rel="icon" href="/favicon.ico" />
 
-      <meta property="og:title" content={ogTitle || 'Scyther band'} />
+      <meta property="og:title" content={ogTitle || 'Syther band'} />
       {ogDescription && <meta property="og:description" content={ogDescription} />}
       {ogImage && <meta property="og:image" content={ogImage} />}
 

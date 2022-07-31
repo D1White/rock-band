@@ -27,14 +27,13 @@
 }
 
 .team {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 50px 120px;
 
   @include sm {
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    gap: 40px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 40px;
   }
 }
 
