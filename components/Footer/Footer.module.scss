@@ -68,20 +68,20 @@
   }
 }
 
-.scytherLogo {
-  width: 118px;
+.sytherLogo {
+  width: 100px;
   height: auto;
   position: relative;
   margin-top: 5px;
 
   @include lg {
-    width: 89px;
+    width: 84px;
   }
   @include md {
-    width: 63px;
+    width: 60px;
   }
   @include sm {
-    width: 80px;
+    width: 72px;
   }
 }
 

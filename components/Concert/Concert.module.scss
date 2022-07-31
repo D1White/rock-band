@@ -19,7 +19,6 @@
   }
   @include xs {
     padding: 0 0 6px 0;
-    justify-content: flex-start
   }
 }
 
@@ -50,11 +49,11 @@
   }
   @include xs {
     gap: 2px;
-    width: 100%;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    // width: 100%;
+    // position: absolute;
+    // left: 50%;
+    // top: 50%;
+    // transform: translate(-50%, -50%);
   }
 }
 
@@ -169,14 +168,29 @@
     border-radius: 6px;
   }
   @include xs {
-    display: none;
+    padding: 3px 5px 3px;
+    border-radius: 4px;
   }
 
   &.disable,
   &:disabled {
     pointer-events: none;
-    background-color: rgba($black, 0.0);
+    background-color: rgba($black, 0);
     color: rgba($white, 0);
+  }
+
+  &__text {
+    @include xs {
+      display: none;
+    }
+  }
+  &__icon {
+    width: 10px;
+    height: 10px;
+    display: none;
+    @include xs {
+      display: initial;
+    }
   }
 }
 

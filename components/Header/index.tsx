@@ -4,7 +4,7 @@ import { gsap, Power1 } from 'gsap';
 
 import styles from './Header.module.scss';
 
-import ScytherLogo from '@components/ScytherLogo';
+import SytherLogo from '@components/SytherLogo';
 import Menu from '@components/Menu';
 
 import { useLoaderPlayed } from 'hooks';
@@ -87,8 +87,8 @@ const Header = () => {
       <header className={`${styles.header} ${scrolled ? styles.scroll : ''}`}>
         <div className={`container ${styles.container}`}>
           <Link href="/">
-            <a className={styles.logo} ref={logoRef} aria-label="Scyther">
-              <ScytherLogo />
+            <a className={styles.logo} ref={logoRef} aria-label="Syther">
+              <SytherLogo />
             </a>
           </Link>
 

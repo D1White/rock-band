@@ -7,10 +7,10 @@ interface ISEO {
 const SEO: ISEO = {
   main: {
     title: 'Home',
-    description: 'Scyther band website',
-    keywords: 'Scyther, scyther band, band, metal band, rock band, music, music band, scyter',
-    ogTitle: 'Scyther band',
-    ogDescription: 'Scyther band website',
+    description: 'Syther band website',
+    keywords: 'Syther, syther band, band, metal band, rock band, music, music band, scyter',
+    ogTitle: 'Syther band',
+    ogDescription: 'Syther band website',
   },
 };
 

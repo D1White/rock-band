@@ -21,7 +21,7 @@ const HeroSection: FC<Props> = ({ data }) => {
         <AnimScale waitReloader direction="up">
           <picture>
             <source srcSet={`${data?.fields.logo.fields.file.url}?fm=webp`} type="image/webp" />
-            <img src={data?.fields.logo.fields.file.url} alt="Scyther band logo" />
+            <img src={data?.fields.logo.fields.file.url} alt="Syther band logo" />
           </picture>
         </AnimScale>
       </div>
@@ -30,7 +30,7 @@ const HeroSection: FC<Props> = ({ data }) => {
         <AnimScale waitReloader>
           <picture>
             <source srcSet={`${data?.fields.bg.fields.file.url}?fm=webp`} type="image/webp" />
-            <img src={data?.fields.bg.fields.file.url} alt="Scyther band concert" />
+            <img src={data?.fields.bg.fields.file.url} alt="Syther band concert" />
           </picture>
         </AnimScale>
       </div>

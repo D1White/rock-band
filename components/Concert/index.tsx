@@ -1,6 +1,6 @@
 import { FC, useEffect, useRef, memo } from 'react';
 import { gsap, Power1 } from 'gsap';
-
+import SVGLink from '@svg/link-icon.svg';
 import styles from './Concert.module.scss';
 
 interface ConcertProps {
@@ -83,11 +83,13 @@ const Concert: FC<ConcertProps> = ({ date, place, city, location, animate, idx }
           className={styles.location}
           ref={locationRef}
         >
-          location
+          <span className={styles.location__text}>link</span>
+          <SVGLink className={styles.location__icon} />
         </a>
       ) : (
         <button className={styles.location} disabled>
-          location
+          <span className={styles.location__text}>link</span>
+          <SVGLink className={styles.location__icon} />
         </button>
       )}
 

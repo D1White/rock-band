@@ -7,7 +7,6 @@ const Preloader = () => {
   const wrapper = useRef<HTMLDivElement>(null);
   const bg = useRef<HTMLDivElement>(null);
   const sText = useRef<HTMLSpanElement>(null);
-  const cText = useRef<HTMLSpanElement>(null);
   const yText = useRef<HTMLSpanElement>(null);
   const tText = useRef<HTMLSpanElement>(null);
   const hText = useRef<HTMLSpanElement>(null);
@@ -35,8 +34,6 @@ const Preloader = () => {
       tl.current
         .to(sText.current, { opacity: 1, duration: 0 }, 0.5)
         .to(sText.current, { opacity: 0, duration: 0 }, '+=0.25')
-        .to(cText.current, { opacity: 1, duration: 0 })
-        .to(cText.current, { opacity: 0, duration: 0 }, '+=0.25')
         .to(yText.current, { opacity: 1, duration: 0 })
         .to(yText.current, { opacity: 0, duration: 0 }, '+=0.25')
         .to(tText.current, { opacity: 1, duration: 0 })
@@ -74,9 +71,6 @@ const Preloader = () => {
         <span className={`${styles.text} ${styles.s}`} ref={sText}>
           s
         </span>
-        <span className={`${styles.text} ${styles.c}`} ref={cText}>
-          c
-        </span>
         <span className={`${styles.text} ${styles.y}`} ref={yText}>
           y
         </span>
@@ -96,7 +90,7 @@ const Preloader = () => {
         <div className={styles.finalText}>
           <div>
             <p className={styles.finalTextRed} ref={redText}>
-              Scyther
+              Syther
             </p>
           </div>
           <div className={styles.textMask}>
