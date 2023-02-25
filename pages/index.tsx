@@ -16,6 +16,7 @@ import SEO from '@components/SEO';
 import { getHero, getAbout, getAlbums, getConcerts, getGallery } from '@utils/api';
 import seo from 'constants/seo';
 import { IHero, IAbout, IAlbum, IConcert, IGallery } from 'types/contentful';
+import { useMemo } from 'react';
 
 interface Props {
   heroData?: IHero;
@@ -26,6 +27,23 @@ interface Props {
 }
 
 const Home: NextPage<Props> = ({ heroData, about, albums, concerts, gallery }) => {
+
+  const filterConcerts = useMemo(() => {
+    if (!concerts) return [];
+    const date = new Date();
+
+    const result = concerts
+      .filter((concert) => {
+        const concertDate = new Date(concert.fields.date);
+        return +date <= +concertDate;
+      })
+      .sort((a, b) => {
+        return +new Date(a.fields.date) - +new Date(b.fields.date);
+      });
+
+    return result;
+  }, [concerts]);
+
   return (
     <>
       <SEO
@@ -55,7 +73,9 @@ const Home: NextPage<Props> = ({ heroData, about, albums, concerts, gallery }) =
           </>
         )}
 
-        <Concerts concerts={concerts} />
+        {filterConcerts?.length > 0 && (
+          <Concerts concerts={filterConcerts} />
+        )}
         <Ticker />
 
         {gallery && <Gallery data={gallery} />}

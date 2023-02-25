@@ -37,6 +37,7 @@
   line-height: 113px;
   text-transform: uppercase;
   user-select: none;
+  white-space: nowrap;
 
   &:nth-child(even) {
     color: $black;

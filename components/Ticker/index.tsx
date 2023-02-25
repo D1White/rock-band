@@ -12,7 +12,7 @@ const Ticker = () => {
         ticker.current,
         { xPercent: 0 },
         {
-          xPercent: -50.5,
+          xPercent: -25.25,
           duration: 30,
           ease: Linear.easeNone,
           repeat: -1,
@@ -26,7 +26,7 @@ const Ticker = () => {
       <ul className={styles.ticker} ref={ticker}>
         {new Array(8).fill(null).map((_, idx) => (
           <li className={styles.text} key={idx}>
-            зa*бись
+            fuck it
           </li>
         ))}
       </ul>

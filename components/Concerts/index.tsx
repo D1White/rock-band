@@ -12,7 +12,7 @@ import SVGArrow from '@svg/arrow-top.svg';
 import { IConcert } from 'types/contentful';
 
 interface Props {
-  concerts?: IConcert[];
+  concerts: IConcert[];
 }
 
 const Concerts: FC<Props> = ({ concerts }) => {
@@ -24,22 +24,6 @@ const Concerts: FC<Props> = ({ concerts }) => {
     isBeginning: false,
     isEnd: false,
   });
-
-  const filterConcerts = useMemo(() => {
-    if (!concerts) return [];
-    const date = new Date();
-
-    const result = concerts
-      .filter((concert) => {
-        const concertDate = new Date(concert.fields.date);
-        return +date <= +concertDate;
-      })
-      .sort((a, b) => {
-        return +new Date(a.fields.date) - +new Date(b.fields.date);
-      });
-
-    return result;
-  }, [concerts]);
 
   const nextSlide = useCallback(() => {
     if (swiper) {
@@ -92,7 +76,7 @@ const Concerts: FC<Props> = ({ concerts }) => {
           onInit={setSwiper}
           onProgress={setProgress}
         >
-          {filterConcerts.map((concert, idx) => (
+          {concerts?.map((concert, idx) => (
             <SwiperSlide key={concert.sys.id}>
               <Concert
                 date={concert.fields.date}
