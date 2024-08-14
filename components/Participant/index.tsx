@@ -10,8 +10,6 @@ interface ParticipantProps {
 }
 
 const Participant: FC<ParticipantProps> = ({ img, name, instagram }) => {
-  const instagramLink = instagram.replace('@', '');
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.imgWrapper}>
@@ -22,17 +20,6 @@ const Participant: FC<ParticipantProps> = ({ img, name, instagram }) => {
 
       <AnimOpacity className={styles.name__wrapper} delay={0.5} duration={0.8} direction="down">
         <h4 className={styles.name}>{name}</h4>
-      </AnimOpacity>
-
-      <AnimOpacity className={styles.link__wrapper} delay={0.9} duration={0.8} direction="down">
-        <a
-          href={`https://www.instagram.com/${instagramLink}/`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.link}
-        >
-          {instagram}
-        </a>
       </AnimOpacity>
     </div>
   );

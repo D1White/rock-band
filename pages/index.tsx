@@ -27,16 +27,15 @@ interface Props {
 }
 
 const Home: NextPage<Props> = ({ heroData, about, albums, concerts, gallery }) => {
-
   const filterConcerts = useMemo(() => {
     if (!concerts) return [];
-    const date = new Date();
+    // const date = new Date();
 
     const result = concerts
-      .filter((concert) => {
-        const concertDate = new Date(concert.fields.date);
-        return +date <= +concertDate;
-      })
+      // .filter((concert) => {
+      //   const concertDate = new Date(concert.fields.date);
+      //   return +date <= +concertDate;
+      // })
       .sort((a, b) => {
         return +new Date(a.fields.date) - +new Date(b.fields.date);
       });
@@ -73,9 +72,7 @@ const Home: NextPage<Props> = ({ heroData, about, albums, concerts, gallery }) =
           </>
         )}
 
-        {filterConcerts?.length > 0 && (
-          <Concerts concerts={filterConcerts} />
-        )}
+        {filterConcerts?.length > 0 && <Concerts concerts={filterConcerts} />}
         <Ticker />
 
         {gallery && <Gallery data={gallery} />}
